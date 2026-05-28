@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Codex 功能地图</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #071012;
+      --panel: rgba(12, 25, 29, 0.76);
+      --panel-strong: rgba(14, 34, 39, 0.92);
+      --line: rgba(148, 227, 219, 0.18);
+      --line-strong: rgba(148, 227, 219, 0.36);
+      --text: #eef8f7;
+      --muted: #9db3b4;
+      --soft: #d3e2de;
+      --cyan: #55e6d2;
+      --blue: #6ca8ff;
+      --lime: #b7ef67;
+      --amber: #ffbd66;
+      --rose: #ff7f8f;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 78% 8%, rgba(85, 230, 210, 0.17), transparent 26rem),
+        radial-gradient(circle at 12% 18%, rgba(108, 168, 255, 0.16), transparent 24rem),
+        linear-gradient(135deg, #061012 0%, #091719 42%, #11160d 100%);
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(148, 227, 219, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 227, 219, 0.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 78%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(7, 16, 18, 0.72));
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(148, 227, 219, 0.14);
+      background: rgba(7, 16, 18, 0.76);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 168px;
+      font-weight: 720;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(85, 230, 210, 0.58);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--cyan);
+      background: linear-gradient(145deg, rgba(85, 230, 210, 0.16), rgba(108, 168, 255, 0.1));
+      box-shadow: 0 0 28px rgba(85, 230, 210, 0.16);
+    }
+
+    .brand-mark svg {
+      width: 21px;
+      height: 21px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 8px 11px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border-color: rgba(85, 230, 210, 0.28);
+      background: rgba(85, 230, 210, 0.08);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    section {
+      scroll-margin-top: 96px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      align-items: center;
+      gap: 48px;
+      padding: 72px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--cyan);
+      box-shadow: 0 0 14px var(--cyan);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-size: clamp(48px, 8vw, 94px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(90deg, #f4fffd 0%, var(--cyan) 42%, var(--lime) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-bottom: 32px;
+      color: var(--soft);
+      font-size: clamp(17px, 2vw, 21px);
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 227, 219, 0.24);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+      white-space: nowrap;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(85, 230, 210, 0.62);
+    }
+
+    .button.primary {
+      color: #041112;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--cyan), var(--lime));
+      box-shadow: 0 18px 44px rgba(85, 230, 210, 0.18);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 660px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--text);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .command-panel {
+      position: relative;
+      border: 1px solid rgba(148, 227, 219, 0.24);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(13, 32, 36, 0.86), rgba(5, 13, 15, 0.9));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .command-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      pointer-events: none;
+    }
+
+    .panel-top {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(148, 227, 219, 0.16);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .traffic {
+      display: flex;
+      gap: 7px;
+    }
+
+    .traffic span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--line-strong);
+    }
+
+    .traffic span:nth-child(1) {
+      background: var(--rose);
+    }
+
+    .traffic span:nth-child(2) {
+      background: var(--amber);
+    }
+
+    .traffic span:nth-child(3) {
+      background: var(--lime);
+    }
+
+    .terminal-lines {
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      color: #c6d7d5;
+    }
+
+    .terminal-line {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+
+    .prompt {
+      color: var(--cyan);
+    }
+
+    .terminal-card {
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid rgba(108, 168, 255, 0.24);
+      border-radius: var(--radius);
+      background: rgba(108, 168, 255, 0.06);
+    }
+
+    .terminal-card strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .terminal-card span {
+      color: var(--muted);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.48fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 30px;
+      padding-top: 28px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 10px;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .capability-map {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(210px, 1fr));
+      gap: 16px;
+      padding-bottom: 80px;
+      overflow-x: auto;
+      scrollbar-color: rgba(85, 230, 210, 0.42) transparent;
+    }
+
+    .capability-column {
+      min-height: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .capability-column:hover {
+      transform: translateY(-4px);
+      border-color: rgba(85, 230, 210, 0.42);
+      background: var(--panel-strong);
+    }
+
+    .column-head {
+      padding: 18px 18px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(85, 230, 210, 0.28);
+      border-radius: 8px;
+      color: var(--cyan);
+      background: rgba(85, 230, 210, 0.08);
+      font-weight: 800;
+    }
+
+    .column-head h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .column-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tree {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      margin: 0;
+      list-style: none;
+    }
+
+    .tree::before {
+      content: "";
+      position: absolute;
+      left: 28px;
+      top: 18px;
+      bottom: 18px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(148, 227, 219, 0.28), transparent);
+    }
+
+    .tree li {
+      position: relative;
+      padding-left: 26px;
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    .tree li::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 11px;
+      width: 12px;
+      height: 1px;
+      background: rgba(148, 227, 219, 0.34);
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border: 1px solid rgba(255, 189, 102, 0.26);
+      border-radius: 999px;
+      color: var(--amber);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .workflow {
+      padding: 78px 0;
+      border-top: 1px solid rgba(148, 227, 219, 0.12);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      position: relative;
+      min-height: 250px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .step:hover {
+      transform: translateY(-4px);
+      border-color: rgba(183, 239, 103, 0.38);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(183, 239, 103, 0.42);
+      color: var(--lime);
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .ecosystem {
+      padding: 78px 0;
+      border-top: 1px solid rgba(148, 227, 219, 0.12);
+    }
+
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .ecosystem-core {
+      padding: 28px;
+      border: 1px solid rgba(85, 230, 210, 0.32);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(85, 230, 210, 0.12), rgba(255, 255, 255, 0.035));
+      box-shadow: var(--shadow);
+    }
+
+    .ecosystem-core h3 {
+      margin-bottom: 14px;
+      font-size: 28px;
+    }
+
+    .ecosystem-core p {
+      color: var(--soft);
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .signal {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(148, 227, 219, 0.12);
+      color: var(--muted);
+    }
+
+    .signal strong {
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .tool {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .tool h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .tool p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      margin: 20px 0 70px;
+      padding: clamp(30px, 6vw, 58px);
+      border: 1px solid rgba(148, 227, 219, 0.24);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(85, 230, 210, 0.12), transparent 42%),
+        rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      max-width: 760px;
+      margin-bottom: 16px;
+      font-size: clamp(30px, 5vw, 56px);
+      line-height: 1.05;
+    }
+
+    .cta p {
+      max-width: 720px;
+      margin-bottom: 28px;
+      color: var(--soft);
+      font-size: 18px;
+    }
+
+    .footer {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0 42px;
+      border-top: 1px solid rgba(148, 227, 219, 0.12);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .section-heading,
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .steps,
+      .tool-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        width: min(100% - 28px, 1180px);
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      main,
+      .footer {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .nav-links a {
+        padding: 7px 9px;
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 48px 0;
+      }
+
+      .hero-stats,
+      .steps,
+      .tool-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .capability-map {
+        grid-template-columns: 1fr;
+        overflow: visible;
+      }
+
+      .step {
+        min-height: 0;
+      }
+
+      .step-number {
+        margin-bottom: 22px;
+      }
+
+      .signal {
+        display: grid;
+        gap: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 20 20" focusable="false">
+            <path d="M11.248 18.25q-.825 0-1.568-.314a4.3 4.3 0 0 1-1.32-.874 4 4 0 0 1-1.304.214 4 4 0 0 1-2.046-.544 4.27 4.27 0 0 1-1.518-1.485 4 4 0 0 1-.56-2.095q0-.48.131-1.04A4.4 4.4 0 0 1 2.04 10.71a4.07 4.07 0 0 1 .017-3.4 4.2 4.2 0 0 1 1.056-1.418 3.8 3.8 0 0 1 1.6-.842 3.9 3.9 0 0 1 .76-1.683q.593-.759 1.451-1.188a4.04 4.04 0 0 1 1.832-.429q.825 0 1.567.313.742.314 1.32.875a4 4 0 0 1 1.304-.215q1.106 0 2.046.545a4.14 4.14 0 0 1 1.501 1.485q.578.941.578 2.095 0 .48-.132 1.04.66.61 1.023 1.419.363.792.363 1.666 0 .892-.38 1.717a4.3 4.3 0 0 1-1.072 1.435 3.8 3.8 0 0 1-1.584.825 3.8 3.8 0 0 1-.775 1.683 4.06 4.06 0 0 1-1.436 1.188 4.04 4.04 0 0 1-1.832.429m-4.076-2.062q.825 0 1.435-.347l3.103-1.782a.36.36 0 0 0 .164-.313v-1.42L7.881 14.62a.67.67 0 0 1-.726 0l-3.118-1.798a.5.5 0 0 1-.017.115v.198q0 .841.396 1.551.413.693 1.139 1.089a3.2 3.2 0 0 0 1.617.412m.165-2.69a.4.4 0 0 0 .181.05q.083 0 .165-.05l1.238-.71-3.977-2.31a.7.7 0 0 1-.363-.643v-3.58q-.825.362-1.32 1.122a2.9 2.9 0 0 0-.495 1.65q0 .809.413 1.55.412.743 1.072 1.123zm3.91 3.663q.875 0 1.585-.396a2.96 2.96 0 0 0 1.534-2.64v-3.564a.32.32 0 0 0-.165-.297l-1.254-.726v4.604a.7.7 0 0 1-.363.643l-3.119 1.799a3 3 0 0 0 1.783.577m.627-6.039V8.878L10.01 7.822 8.129 8.878v2.244l1.881 1.056zM7.057 5.859a.7.7 0 0 1 .363-.644l3.119-1.798a3 3 0 0 0-1.782-.578q-.874 0-1.584.396A2.96 2.96 0 0 0 6.05 4.324a3.07 3.07 0 0 0-.396 1.551v3.547q0 .199.165.314l1.237.726zm8.383 7.887q.825-.364 1.303-1.123.495-.758.495-1.65a3.15 3.15 0 0 0-.412-1.55q-.413-.743-1.073-1.123l-3.086-1.782q-.099-.065-.181-.049a.3.3 0 0 0-.165.05l-1.238.692 3.993 2.327a.6.6 0 0 1 .264.264.64.64 0 0 1 .1.363zm-3.317-8.382a.63.63 0 0 1 .726 0l3.135 1.831v-.297q0-.792-.396-1.501a2.86 2.86 0 0 0-1.105-1.155q-.71-.43-1.65-.43-.825 0-1.436.347L8.294 5.941a.36.36 0 0 0-.165.314v1.418z"/>
+          </svg>
+        </span>
+        <span>Codex 功能地图</span>
+      </a>
+      <div class="nav-links">
+        <a href="#capabilities">能力层级</a>
+        <a href="#workflow">工作流</a>
+        <a href="#ecosystem">工具生态</a>
+        <a href="#start">开始协作</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">AI 工程协作中枢</p>
+        <h1 id="hero-title">把想法变成<br><span class="gradient-text">可验证的工作成果</span></h1>
+        <p class="hero-copy">
+          Codex 不只是回答问题。它能理解项目、操作本地工作区、修改代码、运行验证、处理文档与视觉资产，并把复杂任务拆成可以交付的结果。
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#capabilities">查看能力地图</a>
+          <a class="button" href="#workflow">了解协作流程</a>
+        </div>
+        <div class="hero-stats" aria-label="能力概览">
+          <div class="stat">
+            <strong>7</strong>
+            <span>大类核心能力</span>
+          </div>
+          <div class="stat">
+            <strong>端到端</strong>
+            <span>从需求到验证闭环</span>
+          </div>
+          <div class="stat">
+            <strong>本地化</strong>
+            <span>围绕你的工作区执行</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="command-panel" aria-label="Codex 工作面板示意">
+        <div class="panel-top">
+          <div class="traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span>codex.session</span>
+        </div>
+        <div class="terminal-lines">
+          <div class="terminal-line"><span class="prompt">›</span><span>读取项目结构，定位入口与样式系统</span></div>
+          <div class="terminal-line"><span class="prompt">›</span><span>根据目标生成最小改动方案</span></div>
+          <div class="terminal-line"><span class="prompt">›</span><span>编辑文件，运行测试，检查浏览器表现</span></div>
+          <div class="terminal-card">
+            <strong>输出结果</strong>
+            <span>清晰变更说明、验证结果、后续建议，和可以直接打开或继续迭代的交付物。</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="capabilities" aria-labelledby="capabilities-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Layered Capability Map</p>
+          <h2 id="capabilities-title">按工作层级组织，而不是按工具堆砌。</h2>
+        </div>
+        <p>每一类能力都对应真实协作场景：理解、修改、验证、交付。你描述目标，Codex 负责把它落到文件、命令、浏览器和文档里。</p>
+      </div>
+
+      <div class="capability-map">
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">01</div>
+            <h3>代码与工程</h3>
+            <p>围绕代码库做判断、编辑和验证。</p>
+          </div>
+          <ul class="tree">
+            <li>阅读项目结构、入口、配置与依赖</li>
+            <li>实现功能、修复缺陷、控制改动范围</li>
+            <li>运行测试、构建、静态检查</li>
+            <li>代码审查，指出风险与缺失验证</li>
+            <li>Git 分支、暂存、提交与 PR 协助 <span class="tag">工程闭环</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">02</div>
+            <h3>本地工作区</h3>
+            <p>直接围绕你的电脑和当前目录工作。</p>
+          </div>
+          <ul class="tree">
+            <li>快速检索文件、文本、类型与配置</li>
+            <li>读取终端输出，执行必要命令</li>
+            <li>理解现有环境和依赖路径</li>
+            <li>尊重未提交改动，避免误删用户工作</li>
+            <li>把结果落到真实文件 <span class="tag">同机协作</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">03</div>
+            <h3>浏览器与前端验证</h3>
+            <p>从代码实现推进到可见体验。</p>
+          </div>
+          <ul class="tree">
+            <li>打开本地页面或开发服务器</li>
+            <li>检查响应式布局和文本溢出</li>
+            <li>点击、输入、滚动，验证交互路径</li>
+            <li>截图比对视觉状态</li>
+            <li>发现问题后继续迭代 <span class="tag">视觉 QA</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">04</div>
+            <h3>文档与办公</h3>
+            <p>把工作成果转成可阅读、可交付的文件。</p>
+          </div>
+          <ul class="tree">
+            <li>创建、读取、修改 Word 文档</li>
+            <li>提取、合并、处理 PDF 内容</li>
+            <li>制作和调整演示文稿</li>
+            <li>清洗、生成、分析电子表格</li>
+            <li>渲染检查版式质量 <span class="tag">办公交付</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">05</div>
+            <h3>多模态创作</h3>
+            <p>让视觉资产进入实际项目。</p>
+          </div>
+          <ul class="tree">
+            <li>生成插图、纹理、海报和界面素材</li>
+            <li>编辑已有图片，调整风格或内容</li>
+            <li>识别图片内容，辅助设计决策</li>
+            <li>结合网页、演示和文档使用</li>
+            <li>输出可复用的视觉方向 <span class="tag">图像能力</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">06</div>
+            <h3>自动化与长期任务</h3>
+            <p>把一次性协作延伸成持续跟进。</p>
+          </div>
+          <ul class="tree">
+            <li>设置提醒、后续检查和定时任务</li>
+            <li>监控变化并主动回到线程</li>
+            <li>周期性运行工作区任务</li>
+            <li>保存清晰、自包含的任务说明</li>
+            <li>适合重复检查和长期维护 <span class="tag">持续执行</span></li>
+          </ul>
+        </article>
+
+        <article class="capability-column">
+          <div class="column-head">
+            <div class="icon">07</div>
+            <h3>插件与技能</h3>
+            <p>按专业场景调用更窄、更强的工作流。</p>
+          </div>
+          <ul class="tree">
+            <li>使用技能处理图片、文档、表格和演示</li>
+            <li>通过插件接入浏览器和桌面能力</li>
+            <li>复用项目或团队沉淀的流程规范</li>
+            <li>发现、安装和创建新的技能</li>
+            <li>让能力随工作场景扩展 <span class="tag">可扩展</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="workflow" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Verified Workflow</p>
+          <h2 id="workflow-title">从一句需求，到一组经过验证的结果。</h2>
+        </div>
+        <p>Codex 的价值不在于“多写一点”，而在于持续对齐目标、限制改动范围，并用实际检查证明结果可用。</p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <span class="step-number">1</span>
+          <h3>理解目标</h3>
+          <p>先读上下文和项目现状，明确成功标准、约束和可能的取舍。</p>
+        </article>
+        <article class="step">
+          <span class="step-number">2</span>
+          <h3>制定方案</h3>
+          <p>选择最小可行路径，避免无关重构，把任务拆成可以验证的步骤。</p>
+        </article>
+        <article class="step">
+          <span class="step-number">3</span>
+          <h3>执行修改</h3>
+          <p>编辑真实文件、运行命令、接入需要的工具，让方案进入可运行状态。</p>
+        </article>
+        <article class="step">
+          <span class="step-number">4</span>
+          <h3>验证交付</h3>
+          <p>测试、构建、浏览器检查或文档渲染后，给出清楚的结果说明。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ecosystem" id="ecosystem" aria-labelledby="ecosystem-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Connected Workspace</p>
+          <h2 id="ecosystem-title">Codex 连接的是整个工作现场。</h2>
+        </div>
+        <p>它可以在同一个线程里切换角色：工程搭档、前端质检、文档编辑、自动化助理，或是插件化的专用专家。</p>
+      </div>
+
+      <div class="ecosystem-grid">
+        <article class="ecosystem-core">
+          <h3>一个协作入口，多种执行表面</h3>
+          <p>对用户来说，只需要描述“想完成什么”。对 Codex 来说，任务会被映射到代码、终端、浏览器、文件、图像、文档和自动化系统。</p>
+          <div class="signal-list">
+            <div class="signal"><strong>输入</strong><span>目标、文件、截图、现有代码、口头偏好</span></div>
+            <div class="signal"><strong>过程</strong><span>探索、计划、实现、检查、迭代</span></div>
+            <div class="signal"><strong>输出</strong><span>网页、补丁、文档、表格、图片、任务结果</span></div>
+          </div>
+        </article>
+
+        <div class="tool-grid">
+          <article class="tool">
+            <h3>Terminal</h3>
+            <p>运行命令、读取输出、验证构建与测试结果。</p>
+          </article>
+          <article class="tool">
+            <h3>Browser</h3>
+            <p>打开本地页面，检查视觉、响应式和交互状态。</p>
+          </article>
+          <article class="tool">
+            <h3>Documents</h3>
+            <p>处理 Word、PDF、PPT、表格等办公交付物。</p>
+          </article>
+          <article class="tool">
+            <h3>Image</h3>
+            <p>生成和编辑视觉素材，辅助网页和内容创作。</p>
+          </article>
+          <article class="tool">
+            <h3>Automation</h3>
+            <p>创建提醒、周期任务和持续监控。</p>
+          </article>
+          <article class="tool">
+            <h3>Skills</h3>
+            <p>按专业场景加载更精确的工作流程。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="start" aria-labelledby="start-title">
+      <p class="eyebrow">Start with intent</p>
+      <h2 id="start-title">直接说目标，Codex 会把它拆成能执行、能验证、能交付的工作。</h2>
+      <p>例如：做一个网页、修复一个 bug、审查一段代码、整理一份报告、生成一张视觉图，或设置一个后续提醒。</p>
+      <a class="button primary" href="#top">回到顶部</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Codex 功能地图 · 静态单页 · 当前工作区能力概览</span>
+  </footer>
+
+  <script>
+    const links = Array.from(document.querySelectorAll(".nav-links a"));
+    const sections = links
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+
+    const setActiveLink = () => {
+      const offset = window.innerHeight * 0.28;
+      let current = sections[0];
+
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= offset) {
+          current = section;
+        }
+      });
+
+      links.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current.id}`);
+      });
+    };
+
+    window.addEventListener("scroll", setActiveLink, { passive: true });
+    window.addEventListener("load", setActiveLink);
+  </script>
+</body>
+</html>
