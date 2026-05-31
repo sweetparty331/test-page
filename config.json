@@ -53,6 +53,125 @@
       "type": "YouTube",
       "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
       "reason": "YouTube 名单保留，暂不真实接入。"
+    },
+    {
+      "name": "梁文锋",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.deepseek.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入 DeepSeek 官方动态或可靠第三方源。"
+    },
+    {
+      "name": "任正非",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.huawei.com/cn/news",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入华为官方新闻或访谈源。"
+    },
+    {
+      "name": "周靖人",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.alibabacloud.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入阿里云官方动态或公开演讲源。"
+    },
+    {
+      "name": "陈天石",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.cambricon.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入寒武纪官方动态或公开访谈源。"
+    },
+    {
+      "name": "何恺明",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://kaiminghe.github.io/",
+      "reason": "人物动态源保留；个人主页无稳定资讯 RSS，后续可接论文、主页或机构动态。"
+    },
+    {
+      "name": "李飞飞",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://profiles.stanford.edu/fei-fei-li",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Stanford/HAI 动态或公开演讲源。"
+    },
+    {
+      "name": "王兴兴",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.unitree.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接宇树科技官方动态或公开访谈源。"
+    },
+    {
+      "name": "Sam Altman",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://blog.samaltman.com/",
+      "reason": "人物动态源保留；后续可优先接个人博客 RSS，X 动态需 API 或可靠第三方服务。"
+    },
+    {
+      "name": "Elon Musk",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://x.com/elonmusk",
+      "reason": "人物动态源保留；X 不作为默认 RSS 来源，稳定接入需 X API 或第三方 RSS。"
+    },
+    {
+      "name": "Dario Amodei",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.anthropic.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Anthropic 官方动态或访谈源。"
+    },
+    {
+      "name": "Demis Hassabis",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://deepmind.google/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 DeepMind 官方动态或公开演讲源。"
+    },
+    {
+      "name": "黄仁勋",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/leadership/jen-hsun-huang/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 NVIDIA 官方新闻或主题演讲源。"
+    },
+    {
+      "name": "Mark Zuckerberg",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://about.meta.com/media-gallery/executives/mark-zuckerberg/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Meta 官方动态或公开发言源。"
+    },
+    {
+      "name": "Yann LeCun",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://yann.lecun.com/",
+      "reason": "人物动态源保留；个人主页不适合作为每日 RSS，后续可接论文、Meta 动态或公开演讲源。"
+    },
+    {
+      "name": "Ilya Sutskever",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://ssi.inc/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 SSI 官方动态或公开访谈源。"
+    },
+    {
+      "name": "Andrew Ng",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.deeplearning.ai/the-batch/",
+      "reason": "人物动态源保留；后续可接 DeepLearning.AI/The Batch 等稳定内容源。"
+    },
+    {
+      "name": "Andrej Karpathy",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://karpathy.ai/",
+      "reason": "人物动态源保留；后续可接个人博客、YouTube 或 X API。"
     }
   ]
 }

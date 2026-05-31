@@ -12,6 +12,32 @@ const state = {
   }
 };
 
+const demoPeopleSources = [
+  ["梁文锋", "AI大佬 · 中国", "https://www.deepseek.com/"],
+  ["任正非", "AI大佬 · 中国", "https://www.huawei.com/cn/news"],
+  ["周靖人", "AI大佬 · 中国", "https://www.alibabacloud.com/"],
+  ["陈天石", "AI大佬 · 中国", "https://www.cambricon.com/"],
+  ["何恺明", "AI大佬 · 中国", "https://kaiminghe.github.io/"],
+  ["李飞飞", "AI大佬 · 中国", "https://profiles.stanford.edu/fei-fei-li"],
+  ["王兴兴", "AI大佬 · 中国", "https://www.unitree.com/"],
+  ["Sam Altman", "AI大佬 · 美国", "https://blog.samaltman.com/"],
+  ["Elon Musk", "AI大佬 · 美国", "https://x.com/elonmusk"],
+  ["Dario Amodei", "AI大佬 · 美国", "https://www.anthropic.com/"],
+  ["Demis Hassabis", "AI大佬 · 美国", "https://deepmind.google/"],
+  ["黄仁勋", "AI大佬 · 美国", "https://www.nvidia.com/en-us/about-nvidia/leadership/jen-hsun-huang/"],
+  ["Mark Zuckerberg", "AI大佬 · 美国", "https://about.meta.com/media-gallery/executives/mark-zuckerberg/"],
+  ["Yann LeCun", "AI大佬 · 美国", "https://yann.lecun.com/"],
+  ["Ilya Sutskever", "AI大佬 · 美国", "https://ssi.inc/"],
+  ["Andrew Ng", "AI大佬 · 美国", "https://www.deeplearning.ai/the-batch/"],
+  ["Andrej Karpathy", "AI大佬 · 美国", "https://karpathy.ai/"]
+].map(([name, group, url]) => ({
+  name,
+  group,
+  type: "Person",
+  url,
+  reason: "人物动态源保留；真实接入需个人 RSS、官方动态、X API 或可靠第三方源。"
+}));
+
 const demoFeed = {
   updatedAt: new Date().toISOString(),
   sources: [
@@ -24,7 +50,8 @@ const demoFeed = {
     { name: "Anthropic News", group: "大模型公司", type: "Blog", url: "https://www.anthropic.com/news", reason: "官方 RSS 未确认，先保留官方页面链接。" },
     { name: "Meta AI Blog", group: "大模型公司", type: "Blog", url: "https://ai.meta.com/blog/", reason: "官方 RSS 未确认，先保留官方页面链接。" },
     { name: "The Gradient", group: "技术博客", type: "Blog", url: "https://thegradient.pub/rss/", reason: "技术博客名单保留，暂不真实接入。" },
-    { name: "Yannic Kilcher", group: "技术博客", type: "YouTube", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew", reason: "YouTube 名单保留，暂不真实接入。" }
+    { name: "Yannic Kilcher", group: "技术博客", type: "YouTube", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew", reason: "YouTube 名单保留，暂不真实接入。" },
+    ...demoPeopleSources
   ],
   items: [
     {

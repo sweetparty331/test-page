@@ -646,8 +646,10 @@ button:focus-visible {
 }
 
 .settings-dialog form {
+  max-height: min(760px, calc(100vh - 56px));
   margin: 0;
   padding: 18px;
+  overflow: auto;
 }
 
 .dialog-head {
