@@ -5,7 +5,7 @@ const state = {
   filters: {
     group: "全部",
     category: "全部",
-    date: "today"
+    date: "30d"
   }
 };
 
@@ -171,7 +171,7 @@ function renderCards() {
   elements.resultCount.textContent = `${items.length} 条`;
 
   if (!items.length) {
-    setStateMessage("没有符合筛选条件的资讯。");
+    setEmptyState();
     return;
   }
 
@@ -207,7 +207,7 @@ function getFilteredItems() {
   const maxAge = {
     today: 1000 * 60 * 60 * 24,
     "3d": 1000 * 60 * 60 * 24 * 3,
-    week: 1000 * 60 * 60 * 24 * 7
+    "30d": 1000 * 60 * 60 * 24 * 30
   }[state.filters.date];
 
   return state.items.filter((item) => {
@@ -222,6 +222,24 @@ function getFilteredItems() {
 function setStateMessage(message) {
   elements.stateMessage.textContent = message;
   elements.stateMessage.classList.remove("hidden");
+}
+
+function setEmptyState() {
+  elements.stateMessage.innerHTML = `
+    <span>当前筛选下没有资讯，通常是因为时间或类型筛选太窄。</span>
+    <button class="inline-reset" type="button">查看全部近30日资讯</button>
+  `;
+  elements.stateMessage.classList.remove("hidden");
+  elements.stateMessage.querySelector(".inline-reset").addEventListener("click", resetFilters);
+}
+
+function resetFilters() {
+  state.filters.group = "全部";
+  state.filters.category = "全部";
+  state.filters.date = "30d";
+  renderFilters();
+  setActive(document.querySelectorAll("[data-date]"), document.querySelector("[data-date='30d']"));
+  renderCards();
 }
 
 function setActive(buttons, activeButton) {
