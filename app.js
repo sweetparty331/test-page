@@ -2,10 +2,13 @@ const state = {
   items: [],
   sources: [],
   pendingSources: [],
+  favoriteKeys: loadFavorites(),
   filters: {
     group: "全部",
     category: "全部",
-    date: "30d"
+    date: "30d",
+    favoritesOnly: false,
+    search: ""
   }
 };
 
@@ -31,7 +34,9 @@ const demoFeed = {
       publishedAt: new Date().toISOString(),
       category: "产品",
       title: "新模型能力更新",
-      summary: "新模型更新重点放在更稳定的推理、工具调用和多模态体验上。",
+      originalTitle: "New model capability update",
+      summary: "这条更新强调模型推理、工具调用和多模态体验的稳定性提升，适合关注 AI 产品落地的人快速判断是否会影响现有工作流。",
+      summaryEn: "The update focuses on more reliable reasoning, tool use, and multimodal product experiences.",
       whyItMatters: "产品团队可以优先关注真实工作流里的延迟、成本和可靠性变化。",
       url: "https://openai.com/news/",
       dedupeKey: "demo-openai-model-update"
@@ -43,7 +48,9 @@ const demoFeed = {
       publishedAt: new Date(Date.now() - 1000 * 60 * 60 * 4).toISOString(),
       category: "技术",
       title: "AI 推理效率优化",
-      summary: "推理效率优化正在从单纯压缩模型转向系统级调度和缓存策略。",
+      originalTitle: "AI inference efficiency optimization",
+      summary: "推理效率优化正在从单纯压缩模型转向系统级调度、缓存和部署策略，核心价值是帮助企业在更低成本下获得稳定 AI 能力。",
+      summaryEn: "Inference efficiency is shifting from model compression to system scheduling and caching.",
       whyItMatters: "这会直接影响企业部署 AI 应用时的成本上限。",
       url: "https://blog.google/technology/ai/",
       dedupeKey: "demo-google-inference"
@@ -55,7 +62,9 @@ const demoFeed = {
       publishedAt: new Date(Date.now() - 1000 * 60 * 60 * 8).toISOString(),
       category: "论文",
       title: "新论文解读：Agent 评测",
-      summary: "Agent 评测的关键争议从任务数量转向环境真实性和可复现性。",
+      originalTitle: "New paper on agent evaluation",
+      summary: "这篇论文关注 Agent 评测方法，重点不再只是任务数量，而是环境真实性、可复现性和业务迁移价值。",
+      summaryEn: "The paper argues that agent benchmarks need realistic environments and reproducible tasks.",
       whyItMatters: "选择 Agent 框架时不能只看榜单分数，要看任务是否贴近业务。",
       url: "https://www.youtube.com/",
       dedupeKey: "demo-agent-paper"
@@ -73,11 +82,23 @@ const elements = {
   settingsDialog: document.querySelector("#settingsDialog"),
   groupFilters: document.querySelector("#groupFilters"),
   categoryFilters: document.querySelector("#categoryFilters"),
-  sourceList: document.querySelector("#sourceList")
+  sourceList: document.querySelector("#sourceList"),
+  searchInput: document.querySelector("#searchInput"),
+  favoritesToggle: document.querySelector("#favoritesToggle"),
+  overviewPanel: document.querySelector("#overviewPanel")
 };
 
 elements.refreshButton.addEventListener("click", () => loadFeed(true));
 elements.settingsButton.addEventListener("click", () => elements.settingsDialog.showModal());
+elements.searchInput.addEventListener("input", () => {
+  state.filters.search = elements.searchInput.value.trim();
+  renderCards();
+});
+elements.favoritesToggle.addEventListener("click", () => {
+  state.filters.favoritesOnly = !state.filters.favoritesOnly;
+  elements.favoritesToggle.classList.toggle("active", state.filters.favoritesOnly);
+  renderCards();
+});
 
 document.querySelectorAll("[data-date]").forEach((button) => {
   button.addEventListener("click", () => {
@@ -180,6 +201,7 @@ function renderCards() {
   const items = getFilteredItems();
   elements.cardList.innerHTML = "";
   elements.resultCount.textContent = `${items.length} 条`;
+  renderOverview(items);
 
   if (!items.length) {
     setEmptyState();
@@ -189,28 +211,65 @@ function renderCards() {
   elements.stateMessage.classList.add("hidden");
 
   items.forEach((item) => {
+    const itemKey = getItemKey(item);
+    const isFavorite = state.favoriteKeys.has(itemKey);
     const card = document.createElement("article");
     card.className = "news-card";
     card.innerHTML = `
       <div class="card-meta">
-        <span class="source-tag">${escapeHtml(item.sourceType || "RSS")}</span>
-        <span class="category-tag">${escapeHtml(item.category || "观点")}</span>
-        <span class="time">${formatDateTime(item.publishedAt)}</span>
+        <div class="card-tags">
+          <span class="source-tag">${escapeHtml(item.sourceType || "RSS")}</span>
+          <span class="category-tag">${escapeHtml(item.category || "观点")}</span>
+          <span class="time">${formatDateTime(item.publishedAt)}</span>
+        </div>
+        <button class="favorite-button${isFavorite ? " active" : ""}" type="button" aria-label="${isFavorite ? "取消收藏" : "收藏"}">${isFavorite ? "★" : "☆"}</button>
       </div>
       <div class="author-row">
         <span class="avatar">${escapeHtml(getInitials(item.author))}</span>
         <span class="author">${escapeHtml(item.author || "Unknown")}</span>
       </div>
       <h3>${escapeHtml(item.title || "无标题")}</h3>
-      <p class="summary">${escapeHtml(item.summary || "暂无摘要。")}</p>
+      ${item.originalTitle && item.originalTitle !== item.title ? `<p class="original-title">${escapeHtml(item.originalTitle)}</p>` : ""}
+      <div class="bilingual-summary">
+        <p class="summary"><strong>中文</strong>${escapeHtml(item.summary || "暂无摘要。")}</p>
+        <p class="summary-en"><strong>English</strong>${escapeHtml(item.summaryEn || item.originalTitle || item.summary || "No English summary available.")}</p>
+      </div>
       ${item.whyItMatters ? `<p class="why">${escapeHtml(item.whyItMatters)}</p>` : ""}
       <div class="card-foot">
         <span class="group-name">${escapeHtml(item.group || "未分组")}</span>
         <a class="origin-link" href="${escapeAttribute(item.url || "#")}" target="_blank" rel="noreferrer">查看原文</a>
       </div>
     `;
+    card.querySelector(".favorite-button").addEventListener("click", () => toggleFavorite(item));
     elements.cardList.appendChild(card);
   });
+}
+
+function renderOverview(items) {
+  if (!items.length) {
+    elements.overviewPanel.classList.add("hidden");
+    elements.overviewPanel.innerHTML = "";
+    return;
+  }
+
+  const topCategories = Object.entries(countBy(items, "category"))
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([category, count]) => `${category} ${count} 条`)
+    .join(" / ");
+
+  const bullets = items.slice(0, 4).map((item) => {
+    return `<li>${escapeHtml(shorten(`${item.title}：${item.summary}`, 72))}</li>`;
+  }).join("");
+
+  elements.overviewPanel.classList.remove("hidden");
+  elements.overviewPanel.innerHTML = `
+    <div>
+      <p class="eyebrow">今日总览</p>
+      <h3>${escapeHtml(topCategories || "资讯更新")}</h3>
+    </div>
+    <ul>${bullets}</ul>
+  `;
 }
 
 function getFilteredItems() {
@@ -226,8 +285,28 @@ function getFilteredItems() {
     const inDateRange = Number.isFinite(itemTime) ? now - itemTime <= maxAge : true;
     const inGroup = state.filters.group === "全部" || item.group === state.filters.group;
     const inCategory = state.filters.category === "全部" || item.category === state.filters.category;
-    return inDateRange && inGroup && inCategory;
+    const inFavorites = !state.filters.favoritesOnly || state.favoriteKeys.has(getItemKey(item));
+    const inSearch = matchesSearch(item);
+    return inDateRange && inGroup && inCategory && inFavorites && inSearch;
   });
+}
+
+function matchesSearch(item) {
+  if (!state.filters.search) {
+    return true;
+  }
+
+  const keyword = state.filters.search.toLowerCase();
+  return [
+    item.title,
+    item.originalTitle,
+    item.summary,
+    item.summaryEn,
+    item.whyItMatters,
+    item.author,
+    item.category,
+    item.group
+  ].some((value) => String(value || "").toLowerCase().includes(keyword));
 }
 
 function setStateMessage(message) {
@@ -248,6 +327,10 @@ function resetFilters() {
   state.filters.group = "全部";
   state.filters.category = "全部";
   state.filters.date = "30d";
+  state.filters.favoritesOnly = false;
+  state.filters.search = "";
+  elements.searchInput.value = "";
+  elements.favoritesToggle.classList.remove("active");
   renderFilters();
   setActive(document.querySelectorAll("[data-date]"), document.querySelector("[data-date='30d']"));
   renderCards();
@@ -259,6 +342,14 @@ function setActive(buttons, activeButton) {
 
 function unique(values) {
   return [...new Set(values)];
+}
+
+function countBy(items, key) {
+  return items.reduce((counts, item) => {
+    const value = item[key] || "其他";
+    counts[value] = (counts[value] || 0) + 1;
+    return counts;
+  }, {});
 }
 
 function formatDateTime(value) {
@@ -280,6 +371,50 @@ function getInitials(name = "") {
     return "AI";
   }
   return trimmed.slice(0, 2).toUpperCase();
+}
+
+function shorten(text = "", maxLength) {
+  const normalized = String(text).replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+  return `${normalized.slice(0, maxLength - 1)}…`;
+}
+
+function getItemKey(item) {
+  return item.dedupeKey || item.url || item.title || "";
+}
+
+function toggleFavorite(item) {
+  const key = getItemKey(item);
+  if (!key) {
+    return;
+  }
+
+  if (state.favoriteKeys.has(key)) {
+    state.favoriteKeys.delete(key);
+  } else {
+    state.favoriteKeys.add(key);
+  }
+
+  saveFavorites();
+  renderCards();
+}
+
+function loadFavorites() {
+  try {
+    return new Set(JSON.parse(localStorage.getItem("aiDailyPulseFavorites") || "[]"));
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function saveFavorites() {
+  try {
+    localStorage.setItem("aiDailyPulseFavorites", JSON.stringify([...state.favoriteKeys]));
+  } catch (error) {
+    // 收藏是本地增强能力；浏览器禁用存储时保持页面可用。
+  }
 }
 
 function escapeHtml(value = "") {

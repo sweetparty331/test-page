@@ -53,6 +53,16 @@
         <p id="resultCount" class="result-count">0 条</p>
       </div>
 
+      <div class="feed-tools" aria-label="搜索和收藏">
+        <label class="search-box">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="搜索公司、标题、摘要或关键词">
+        </label>
+        <button id="favoritesToggle" class="button button-ghost" type="button">只看收藏</button>
+      </div>
+
+      <section id="overviewPanel" class="overview-panel hidden" aria-label="今日总览"></section>
+
       <div id="stateMessage" class="state-message">正在拉取干净资讯...</div>
       <div id="cardList" class="card-list"></div>
     </section>
