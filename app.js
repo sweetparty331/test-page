@@ -132,7 +132,10 @@ function renderFilterButtons(container, values, key) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = `filter-chip${state.filters[key] === value ? " active" : ""}`;
-    button.textContent = value;
+    button.innerHTML = `
+      <span>${escapeHtml(value)}</span>
+      <span class="chip-count">${getFilterCount(key, value)}</span>
+    `;
     button.addEventListener("click", () => {
       state.filters[key] = value;
       renderFilterButtons(container, values, key);
@@ -140,6 +143,14 @@ function renderFilterButtons(container, values, key) {
     });
     container.appendChild(button);
   });
+}
+
+function getFilterCount(key, value) {
+  if (value === "全部") {
+    return state.items.length;
+  }
+
+  return state.items.filter((item) => item[key] === value).length;
 }
 
 function renderSources() {
