@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "name": "OpenAI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://openai.com/news/rss.xml"
+    },
+    {
+      "name": "Google AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blog.google/technology/ai/rss/"
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://deepmind.google/blog/rss.xml"
+    },
+    {
+      "name": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/"
+    }
+  ],
+  "pendingSources": [
+    {
+      "name": "Anthropic News",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://www.anthropic.com/news",
+      "reason": "官方 RSS 未确认，先保留官方页面链接。"
+    },
+    {
+      "name": "Meta AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://ai.meta.com/blog/",
+      "reason": "官方 RSS 未确认，先保留官方页面链接。"
+    },
+    {
+      "name": "The Gradient",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://thegradient.pub/rss/",
+      "reason": "技术博客名单保留，暂不真实接入。"
+    },
+    {
+      "name": "Yannic Kilcher",
+      "group": "技术博客",
+      "type": "YouTube",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+      "reason": "YouTube 名单保留，暂不真实接入。"
+    }
+  ]
+}
