@@ -252,23 +252,48 @@ function renderOverview(items) {
     return;
   }
 
+  const today = new Date();
+  const rangeLabel = {
+    today: "今日",
+    "3d": "近3日",
+    "30d": "近30日"
+  }[state.filters.date] || "当前";
   const topCategories = Object.entries(countBy(items, "category"))
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3)
-    .map(([category, count]) => `${category} ${count} 条`)
-    .join(" / ");
+    .map(([category, count]) => `<span>${escapeHtml(category)} ${count}</span>`)
+    .join("");
 
-  const bullets = items.slice(0, 4).map((item) => {
-    return `<li>${escapeHtml(shorten(`${item.title}：${item.summary}`, 72))}</li>`;
+  const headlines = items.slice(0, 2).map((item) => {
+    return `<span>${escapeHtml(shorten(item.title || "无标题", 22))}</span>`;
+  }).join("");
+
+  const previewItems = items.slice(0, 5).map((item) => {
+    return `<li><strong>${escapeHtml(shorten(item.title || "无标题", 24))}</strong><span>${escapeHtml(shorten(item.summary || "", 66))}</span></li>`;
   }).join("");
 
   elements.overviewPanel.classList.remove("hidden");
   elements.overviewPanel.innerHTML = `
-    <div>
-      <p class="eyebrow">今日总览</p>
-      <h3>${escapeHtml(topCategories || "资讯更新")}</h3>
+    <div class="overview-card" tabindex="0" aria-label="${escapeAttribute(rangeLabel)}资讯预览">
+      <div class="date-tile" aria-hidden="true">
+        <span>${formatMonth(today)}</span>
+        <strong>${String(today.getDate()).padStart(2, "0")}</strong>
+        <span>${formatWeekday(today)}</span>
+      </div>
+      <div class="overview-main">
+        <div class="overview-line">
+          <span class="eyebrow">资讯日历</span>
+          <strong>${escapeHtml(rangeLabel)} ${items.length} 条</strong>
+        </div>
+        <div class="overview-chips">${topCategories || "<span>资讯更新</span>"}</div>
+        <div class="overview-headlines">${headlines}</div>
+      </div>
+      <span class="overview-hint">悬停预览</span>
+      <div class="overview-popover" role="tooltip">
+        <strong>${escapeHtml(rangeLabel)}资讯</strong>
+        <ul>${previewItems}</ul>
+      </div>
     </div>
-    <ul>${bullets}</ul>
   `;
 }
 
@@ -363,6 +388,14 @@ function formatDateTime(value) {
     hour: "2-digit",
     minute: "2-digit"
   }).format(date);
+}
+
+function formatMonth(date) {
+  return new Intl.DateTimeFormat("zh-CN", { month: "short" }).format(date);
+}
+
+function formatWeekday(date) {
+  return new Intl.DateTimeFormat("zh-CN", { weekday: "short" }).format(date);
 }
 
 function getInitials(name = "") {
