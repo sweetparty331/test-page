@@ -65,6 +65,8 @@ const demoFeed = {
       summary: "这条更新强调模型推理、工具调用和多模态体验的稳定性提升，适合关注 AI 产品落地的人快速判断是否会影响现有工作流。",
       summaryEn: "The update focuses on more reliable reasoning, tool use, and multimodal product experiences.",
       whyItMatters: "产品团队可以优先关注真实工作流里的延迟、成本和可靠性变化。",
+      people: ["Sam Altman"],
+      peopleGroups: ["AI大佬 · 美国"],
       url: "https://openai.com/news/",
       dedupeKey: "demo-openai-model-update"
     },
@@ -79,6 +81,8 @@ const demoFeed = {
       summary: "推理效率优化正在从单纯压缩模型转向系统级调度、缓存和部署策略，核心价值是帮助企业在更低成本下获得稳定 AI 能力。",
       summaryEn: "Inference efficiency is shifting from model compression to system scheduling and caching.",
       whyItMatters: "这会直接影响企业部署 AI 应用时的成本上限。",
+      people: ["Demis Hassabis"],
+      peopleGroups: ["AI大佬 · 美国"],
       url: "https://blog.google/technology/ai/",
       dedupeKey: "demo-google-inference"
     },
@@ -93,6 +97,8 @@ const demoFeed = {
       summary: "这篇论文关注 Agent 评测方法，重点不再只是任务数量，而是环境真实性、可复现性和业务迁移价值。",
       summaryEn: "The paper argues that agent benchmarks need realistic environments and reproducible tasks.",
       whyItMatters: "选择 Agent 框架时不能只看榜单分数，要看任务是否贴近业务。",
+      people: ["Andrej Karpathy"],
+      peopleGroups: ["AI大佬 · 美国"],
       url: "https://www.youtube.com/",
       dedupeKey: "demo-agent-paper"
     }
@@ -167,7 +173,14 @@ function applyFeed(data) {
 }
 
 function renderFilters() {
-  const groups = ["全部", ...unique(state.sources.map((source) => source.group).filter(Boolean))];
+  const groups = [
+    "全部",
+    ...unique([
+      ...state.sources.map((source) => source.group),
+      ...state.pendingSources.filter((source) => source.type === "Person").map((source) => source.group),
+      ...state.items.flatMap((item) => item.peopleGroups || [])
+    ].filter(Boolean))
+  ];
   const categories = ["全部", "观点", "产品", "技术", "论文", "行业"];
 
   renderFilterButtons(elements.groupFilters, groups, "group");
@@ -196,6 +209,10 @@ function renderFilterButtons(container, values, key) {
 function getFilterCount(key, value) {
   if (value === "全部") {
     return state.items.length;
+  }
+
+  if (key === "group") {
+    return state.items.filter((item) => itemMatchesGroup(item, value)).length;
   }
 
   return state.items.filter((item) => item[key] === value).length;
@@ -255,6 +272,7 @@ function renderCards() {
         <span class="avatar">${escapeHtml(getInitials(item.author))}</span>
         <span class="author">${escapeHtml(item.author || "Unknown")}</span>
       </div>
+      ${renderPersonTags(item.people)}
       <h3>${escapeHtml(item.title || "无标题")}</h3>
       ${item.originalTitle && item.originalTitle !== item.title ? `<p class="original-title">${escapeHtml(item.originalTitle)}</p>` : ""}
       <div class="bilingual-summary">
@@ -335,7 +353,7 @@ function getFilteredItems() {
   return state.items.filter((item) => {
     const itemTime = new Date(item.publishedAt || 0).getTime();
     const inDateRange = Number.isFinite(itemTime) ? now - itemTime <= maxAge : true;
-    const inGroup = state.filters.group === "全部" || item.group === state.filters.group;
+    const inGroup = state.filters.group === "全部" || itemMatchesGroup(item, state.filters.group);
     const inCategory = state.filters.category === "全部" || item.category === state.filters.category;
     const inFavorites = !state.filters.favoritesOnly || state.favoriteKeys.has(getItemKey(item));
     const inSearch = matchesSearch(item);
@@ -357,8 +375,23 @@ function matchesSearch(item) {
     item.whyItMatters,
     item.author,
     item.category,
-    item.group
+    item.group,
+    ...(item.people || []),
+    ...(item.peopleGroups || [])
   ].some((value) => String(value || "").toLowerCase().includes(keyword));
+}
+
+function itemMatchesGroup(item, group) {
+  return item.group === group || (item.peopleGroups || []).includes(group);
+}
+
+function renderPersonTags(people = []) {
+  if (!people.length) {
+    return "";
+  }
+
+  const tags = people.map((person) => `<span>${escapeHtml(person)}</span>`).join("");
+  return `<div class="person-tags" aria-label="相关人物">${tags}</div>`;
 }
 
 function setStateMessage(message) {

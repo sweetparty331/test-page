@@ -549,6 +549,25 @@ button:focus-visible {
   font-weight: 700;
 }
 
+.person-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.person-tags span {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px solid #d8e9e6;
+  border-radius: 6px;
+  background: #f8fffd;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .news-card h3 {
   margin: 0;
   font-family: Newsreader, Georgia, "Times New Roman", serif;

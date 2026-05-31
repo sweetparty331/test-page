@@ -1,5 +1,6 @@
 const { loadConfig, fetchSources } = require("../lib/sources");
 const { cleanItems } = require("../lib/clean");
+const { tagPeople } = require("../lib/people");
 const { summarizeItems } = require("../lib/summarize");
 
 module.exports = async function handler(request, response) {
@@ -15,7 +16,8 @@ module.exports = async function handler(request, response) {
     const config = loadConfig();
     const rawItems = await fetchSources(config.sources);
     const cleanFeed = cleanItems(rawItems);
-    const items = await summarizeItems(cleanFeed);
+    const peopleTaggedFeed = tagPeople(cleanFeed, config.pendingSources);
+    const items = await summarizeItems(peopleTaggedFeed);
     const finalItems = items.length ? items : fallbackItems();
 
     response.status(200).json({
