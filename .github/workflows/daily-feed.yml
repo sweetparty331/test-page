@@ -2,7 +2,8 @@ name: Generate Daily Feed
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * *"  # 08:00 Asia/Shanghai, Asia/Singapore
+    - cron: "0 12 * * *" # 20:00 Asia/Shanghai, Asia/Singapore
   workflow_dispatch:
 
 permissions:
