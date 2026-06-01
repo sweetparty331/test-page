@@ -24,6 +24,7 @@ jobs:
       - name: Generate feed snapshot
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          EEPSEEK_API_KEY: ${{ secrets.EEPSEEK_API_KEY }}
           DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL }}
           ENABLE_X_FEEDS: ${{ vars.ENABLE_X_FEEDS }}
           X_STATUS_API_BASE: ${{ vars.X_STATUS_API_BASE }}
