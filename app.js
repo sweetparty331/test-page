@@ -12,6 +12,8 @@ const state = {
   }
 };
 
+const DEFAULT_PAPER_LIMIT = 3;
+
 const demoPeopleSources = [
   ["梁文锋", "AI大佬 · 中国", "https://www.deepseek.com/"],
   ["任正非", "AI大佬 · 中国", "https://www.huawei.com/cn/news"],
@@ -383,7 +385,7 @@ function getFilteredItems() {
     "30d": 1000 * 60 * 60 * 24 * 30
   }[state.filters.date];
 
-  return state.items.filter((item) => {
+  const filteredItems = state.items.filter((item) => {
     const itemTime = new Date(item.publishedAt || 0).getTime();
     const inDateRange = Number.isFinite(itemTime) ? now - itemTime <= maxAge : true;
     const inGroup = state.filters.group === "全部" || itemMatchesGroup(item, state.filters.group);
@@ -392,6 +394,35 @@ function getFilteredItems() {
     const inSearch = matchesSearch(item);
     return inDateRange && inGroup && inCategory && inFavorites && inSearch;
   });
+
+  return applyDefaultPaperLimit(filteredItems);
+}
+
+function applyDefaultPaperLimit(items) {
+  if (shouldShowAllPapers()) {
+    return items;
+  }
+
+  let paperCount = 0;
+  return items.filter((item) => {
+    if (!isPaperItem(item)) {
+      return true;
+    }
+
+    paperCount += 1;
+    return paperCount <= DEFAULT_PAPER_LIMIT;
+  });
+}
+
+function shouldShowAllPapers() {
+  return state.filters.category === "论文" ||
+    state.filters.group === "论文" ||
+    state.filters.favoritesOnly ||
+    Boolean(state.filters.search);
+}
+
+function isPaperItem(item) {
+  return item.category === "论文" || item.sourceType === "Paper" || item.group === "论文";
 }
 
 function matchesSearch(item) {
