@@ -1,4 +1,10 @@
-const { buildRssHubSources, loadConfig, fetchSources } = require("../lib/sources");
+const {
+  buildRssHubSources,
+  buildXStatusSources,
+  fetchXStatusSources,
+  loadConfig,
+  fetchSources
+} = require("../lib/sources");
 const { cleanItems } = require("../lib/clean");
 const { tagPeople } = require("../lib/people");
 const { summarizeItems } = require("../lib/summarize");
@@ -15,8 +21,13 @@ module.exports = async function handler(request, response) {
   try {
     const config = loadConfig();
     const rssHubSources = buildRssHubSources(config.pendingSources);
-    const activeSources = [...config.sources, ...rssHubSources];
-    const rawItems = await fetchSources(activeSources);
+    const xStatusSources = buildXStatusSources(config.pendingSources);
+    const activeSources = [...config.sources, ...rssHubSources, ...xStatusSources];
+    const [rssItems, xItems] = await Promise.all([
+      fetchSources([...config.sources, ...rssHubSources]),
+      fetchXStatusSources(xStatusSources)
+    ]);
+    const rawItems = [...rssItems, ...xItems];
     const cleanFeed = cleanItems(rawItems);
     const peopleTaggedFeed = tagPeople(cleanFeed, config.pendingSources);
     const items = await summarizeItems(peopleTaggedFeed);
