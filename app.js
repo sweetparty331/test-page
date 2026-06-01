@@ -137,6 +137,11 @@ const elements = {
 elements.refreshButton.addEventListener("click", () => loadFeed(true));
 elements.settingsButton.addEventListener("click", () => elements.settingsDialog.showModal());
 elements.sourceDetailsButton.addEventListener("click", () => elements.settingsDialog.showModal());
+elements.settingsDialog.addEventListener("click", (event) => {
+  if (event.target === elements.settingsDialog) {
+    elements.settingsDialog.close();
+  }
+});
 elements.searchInput.addEventListener("input", () => {
   state.filters.search = elements.searchInput.value.trim();
   renderCards();
@@ -240,7 +245,7 @@ function renderSources() {
   });
 
   state.pendingSources.forEach((source) => {
-    elements.sourceList.appendChild(createSourceItem(source, "暂不接入"));
+    elements.sourceList.appendChild(createSourceItem(source, "暂未接入"));
   });
 }
 
@@ -253,9 +258,12 @@ function renderSourceSummary() {
 
 function createSourceItem(source, status) {
   const item = document.createElement("div");
-  item.className = "source-item";
+  item.className = `source-item${status === "暂未接入" ? " source-item-pending" : ""}`;
   item.innerHTML = `
-    <strong>${escapeHtml(source.name || "未命名来源")} · ${escapeHtml(source.type || "RSS")} · ${escapeHtml(status)}</strong>
+    <strong>
+      <span>${escapeHtml(source.name || "未命名来源")} · ${escapeHtml(source.type || "RSS")}</span>
+      <span class="source-status-pill">${escapeHtml(status)}</span>
+    </strong>
     <span>${escapeHtml(source.group || "未分组")}</span>
     <span>${escapeHtml(source.url || "")}</span>
     ${renderSourceLinks(source.links)}

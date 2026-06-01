@@ -709,6 +709,28 @@ button:focus-visible {
   line-height: 1;
 }
 
+.method-card {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #f8fffd;
+}
+
+.method-card h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.method-card ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .source-list {
   display: grid;
   gap: 10px;
@@ -721,10 +743,33 @@ button:focus-visible {
   border-radius: var(--radius);
 }
 
+.source-item-pending {
+  border-color: #e5e7eb;
+  background: #f8fafc;
+}
+
 .source-item strong {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 4px;
   font-size: 14px;
+}
+
+.source-status-pill {
+  flex: 0 0 auto;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.source-item-pending .source-status-pill {
+  background: #e5e7eb;
+  color: #6b7280;
 }
 
 .source-item span {

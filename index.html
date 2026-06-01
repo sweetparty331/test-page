@@ -79,10 +79,20 @@
   <dialog id="settingsDialog" class="settings-dialog">
     <form method="dialog">
       <div class="dialog-head">
-        <h2>关注源设置</h2>
+        <h2>来源与方法论</h2>
         <button class="icon-button" value="close" aria-label="关闭设置" type="submit">×</button>
       </div>
-      <p class="dialog-note">首版不直接写入配置文件；这里展示当前 `config.json` 中的来源，方便部署前检查。</p>
+      <p class="dialog-note">首版不直接写入配置文件；这里展示当前来源和筛选原则，方便部署前检查。</p>
+      <section class="method-card" aria-label="方法论">
+        <h3>方法论</h3>
+        <ul>
+          <li>一手信源优先，官方发布和本人动态优先。</li>
+          <li>摘要只复述事实，不夸张、不演绎。</li>
+          <li>过滤广告、抽奖、纯转发和低信息量内容。</li>
+          <li>默认保留完整信息流，用筛选和搜索减压。</li>
+          <li>每条资讯保留原文链接，方便追溯。</li>
+        </ul>
+      </section>
       <div id="sourceList" class="source-list"></div>
     </form>
   </dialog>
