@@ -505,6 +505,11 @@ button:focus-visible {
   justify-content: space-between;
 }
 
+.author-row {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .card-tags {
   display: flex;
   align-items: center;
@@ -557,22 +562,14 @@ button:focus-visible {
   font-size: 13px;
 }
 
-.avatar {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--blue-soft);
-  color: var(--blue);
-  font-size: 12px;
-  font-weight: 750;
-}
-
 .author {
   color: var(--text);
   font-size: 14px;
   font-weight: 700;
+}
+
+.dot-separator {
+  color: var(--muted);
 }
 
 .person-tags {

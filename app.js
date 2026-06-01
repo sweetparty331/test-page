@@ -304,10 +304,11 @@ function renderCards() {
         <button class="favorite-button${isFavorite ? " active" : ""}" type="button" aria-label="${isFavorite ? "取消收藏" : "收藏"}">${isFavorite ? "★" : "☆"}</button>
       </div>
       <div class="author-row">
-        <span class="avatar">${escapeHtml(getInitials(item.author))}</span>
         <span class="author">${escapeHtml(item.author || "Unknown")}</span>
+        <span class="dot-separator" aria-hidden="true">·</span>
+        <span class="group-name">${escapeHtml(item.group || "未分组")}</span>
       </div>
-      ${renderPersonTags(item.people)}
+      ${renderPersonTags(item.people, item.author)}
       <h3>${escapeHtml(item.title || "无标题")}</h3>
       ${item.originalTitle && item.originalTitle !== item.title ? `<p class="original-title">${escapeHtml(item.originalTitle)}</p>` : ""}
       <div class="bilingual-summary">
@@ -316,7 +317,7 @@ function renderCards() {
       </div>
       ${item.whyItMatters ? `<p class="why">${escapeHtml(item.whyItMatters)}</p>` : ""}
       <div class="card-foot">
-        <span class="group-name">${escapeHtml(item.group || "未分组")}</span>
+        <span></span>
         <a class="origin-link" href="${escapeAttribute(item.url || "#")}" target="_blank" rel="noreferrer">查看原文</a>
       </div>
     `;
@@ -449,13 +450,18 @@ function itemMatchesGroup(item, group) {
   return item.group === group || (item.peopleGroups || []).includes(group);
 }
 
-function renderPersonTags(people = []) {
-  if (!people.length) {
+function renderPersonTags(people = [], author = "") {
+  const visiblePeople = people.filter((person) => normalizeName(person) !== normalizeName(author));
+  if (!visiblePeople.length) {
     return "";
   }
 
-  const tags = people.map((person) => `<span>${escapeHtml(person)}</span>`).join("");
+  const tags = visiblePeople.map((person) => `<span>${escapeHtml(person)}</span>`).join("");
   return `<div class="person-tags" aria-label="相关人物">${tags}</div>`;
+}
+
+function normalizeName(value = "") {
+  return String(value).replace(/\s+/g, "").trim().toLowerCase();
 }
 
 function setStateMessage(message) {
