@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Daily Pulse v1 产品文档</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7fbfa;
+      --panel: #ffffff;
+      --panel-soft: #eef8f6;
+      --text: #143331;
+      --muted: #617271;
+      --line: #d8e7e4;
+      --green: #0f766e;
+      --green-soft: #dff7f4;
+      --orange: #f97316;
+      --orange-soft: #fff3e8;
+      --ink: #18302e;
+      --radius: 8px;
+      font-family: Roboto, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        linear-gradient(180deg, #f0fdfa 0, var(--bg) 260px),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 44px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 28px;
+      align-items: end;
+      padding: 28px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow,
+    .section-kicker,
+    .meta-label {
+      margin: 0;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .hero-panel strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    .nav-strip {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+      background: rgba(247, 251, 250, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-strip a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .section {
+      grid-column: span 12;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .half {
+      grid-column: span 6;
+    }
+
+    .third {
+      grid-column: span 4;
+    }
+
+    .section h2 {
+      margin: 6px 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .section p {
+      color: var(--muted);
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.78em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .flow {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .flow-step {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fcfffe;
+    }
+
+    .num {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .flow-step p {
+      margin: 2px 0 0;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    th {
+      background: var(--panel-soft);
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tag.orange {
+      background: var(--orange-soft);
+      color: #b45309;
+    }
+
+    .quote {
+      margin: 0;
+      padding: 14px 16px;
+      border-left: 3px solid var(--green);
+      background: #f8fffd;
+      color: var(--ink);
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 24px, 680px);
+        padding-top: 20px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .half,
+      .third {
+        grid-column: span 12;
+      }
+
+      .principles {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">AI Daily Pulse v1</p>
+        <h1>完整但不压迫的 AI 动态工作台</h1>
+        <p class="hero-copy">每天打开一次，用较少时间掌握 AI 公司、大佬、产品、论文和行业动态。默认保留完整信息流，通过筛选、搜索、收藏和来源透明降低阅读压力。</p>
+      </div>
+      <aside class="hero-panel" aria-label="版本目标">
+        <p class="meta-label">Version Goal</p>
+        <strong>5-10 分钟读完当天重点，但不丢信息。</strong>
+      </aside>
+    </header>
+
+    <nav class="nav-strip" aria-label="文档导航">
+      <a href="#position">定位</a>
+      <a href="#structure">页面结构</a>
+      <a href="#card">资讯卡片</a>
+      <a href="#filters">筛选逻辑</a>
+      <a href="#sources">信息源</a>
+      <a href="#method">方法论</a>
+      <a href="#scope">v1 边界</a>
+    </nav>
+
+    <div class="grid">
+      <section id="position" class="section">
+        <p class="section-kicker">Product Positioning</p>
+        <h2>不是热榜，不是日报，不是社交流。</h2>
+        <p>AI Daily Pulse v1 的核心不是替用户做全部判断，而是把可信来源聚合成一个清爽的个人雷达。用户可以快速扫过完整信息，也可以通过筛选专注某类动态。</p>
+        <div class="principles">
+          <div class="pill">冷静</div>
+          <div class="pill">透明</div>
+          <div class="pill">可追溯</div>
+          <div class="pill">低噪声</div>
+        </div>
+      </section>
+
+      <section class="section half">
+        <p class="section-kicker">Do</p>
+        <h2>v1 要做什么</h2>
+        <ul class="list">
+          <li>聚合官方博客、本人 X、论文 RSS、技术博客和行业媒体。</li>
+          <li>默认展示完整信息流，不硬砍资讯总量。</li>
+          <li>用中文事实摘要降低阅读成本。</li>
+          <li>展示来源状态和方法论，建立可信感。</li>
+          <li>每条资讯保留原文链接，方便追溯。</li>
+        </ul>
+      </section>
+
+      <section class="section half">
+        <p class="section-kicker">Do Not</p>
+        <h2>v1 不做什么</h2>
+        <ul class="list">
+          <li>不做热榜分数和社交评论。</li>
+          <li>不做夸张标题和编辑部式长篇日报。</li>
+          <li>不做复杂账号系统和多人自定义配置。</li>
+          <li>不把信息藏起来，也不把论文无限铺满首页。</li>
+          <li>不展示广告、抽奖、纯转发、无信息量内容。</li>
+        </ul>
+      </section>
+
+      <section id="structure" class="section">
+        <p class="section-kicker">Information Architecture</p>
+        <h2>首页结构</h2>
+        <div class="flow">
+          <div class="flow-step">
+            <span class="num">1</span>
+            <div>
+              <h3>顶部栏</h3>
+              <p>产品名、更新时间、刷新、设置。保持轻量，不增加复杂导航。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="num">2</span>
+            <div>
+              <h3>轻量总览</h3>
+              <p>当前范围资讯数、来源数、类型分布、后续可加入高频关键词。总览只做状态，不做“今日三条”。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="num">3</span>
+            <div>
+              <h3>左侧筛选</h3>
+              <p>时间、类型、分组、信息源状态和来源入口。减压靠工具，不靠隐藏内容。</p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <span class="num">4</span>
+            <div>
+              <h3>主资讯流</h3>
+              <p>默认完整展示，通过混合排序降低噪声。论文默认最多露出 3 条，进入论文筛选后显示全部。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="card" class="section half">
+        <p class="section-kicker">Card Model</p>
+        <h2>卡片只回答四个问题</h2>
+        <ul class="list">
+          <li>谁发的？</li>
+          <li>什么时候？</li>
+          <li>说了什么？</li>
+          <li>我要不要点原文？</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">来源类型</span>
+          <span class="tag">作者</span>
+          <span class="tag">中文标题</span>
+          <span class="tag">事实摘要</span>
+          <span class="tag orange">原文链接</span>
+          <span class="tag orange">收藏</span>
+        </div>
+      </section>
+
+      <section class="section half">
+        <p class="section-kicker">Card Cleanup</p>
+        <h2>卡片减负规则</h2>
+        <ul class="list">
+          <li>不重复显示头像缩写和作者标签。</li>
+          <li>不展示泛化推荐理由。</li>
+          <li>英文原题可以保留，英文摘要弱化或移除。</li>
+          <li>分组信息并入作者行，不在底部重复。</li>
+          <li>来源标签和内容类型标签保持小而清楚。</li>
+        </ul>
+      </section>
+
+      <section id="filters" class="section">
+        <p class="section-kicker">Filters And Sorting</p>
+        <h2>筛选与排序</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>模块</th>
+                <th>v1 规则</th>
+                <th>目的</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>时间</td>
+                <td>今日、近 3 日、近 30 日</td>
+                <td>控制阅读范围</td>
+              </tr>
+              <tr>
+                <td>内容类型</td>
+                <td>观点、产品、技术、论文、行业</td>
+                <td>快速切换阅读意图</td>
+              </tr>
+              <tr>
+                <td>分组</td>
+                <td>大模型公司、AI 大佬、技术博客、行业媒体、论文</td>
+                <td>按关注对象聚焦</td>
+              </tr>
+              <tr>
+                <td>搜索</td>
+                <td>标题、摘要、作者、来源、人物标签</td>
+                <td>完整信息流里的快速定位</td>
+              </tr>
+              <tr>
+                <td>论文</td>
+                <td>默认最多露出 3 条；筛选论文时显示全部</td>
+                <td>保留价值，控制噪声</td>
+              </tr>
+              <tr>
+                <td>排序</td>
+                <td>来源权重、内容权重、关键词相关度、时间新鲜度混合</td>
+                <td>不是热榜，也不是纯时间流</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="sources" class="section half">
+        <p class="section-kicker">Sources</p>
+        <h2>信息源设计</h2>
+        <p>来源透明是 v1 的信任基础。页面需要展示真实接入源、候选源和接入类型。</p>
+        <ul class="list">
+          <li>官方博客 / 新闻：OpenAI、Google、DeepMind、NVIDIA、Huawei、Microsoft。</li>
+          <li>X 动态：公司官方号和关键人物本人动态。</li>
+          <li>论文：arXiv 等高相关论文源，默认限量。</li>
+          <li>技术博客 / 行业媒体：Latent Space、The Decoder 等补充解读。</li>
+        </ul>
+      </section>
+
+      <section id="method" class="section half">
+        <p class="section-kicker">Methodology</p>
+        <h2>方法论说明</h2>
+        <ul class="list">
+          <li>一手信源优先。</li>
+          <li>不接广告，不做标题党。</li>
+          <li>摘要只复述事实，不加戏。</li>
+          <li>重复资讯自动合并。</li>
+          <li>所有卡片保留原文链接。</li>
+          <li>低价值内容自动过滤。</li>
+        </ul>
+      </section>
+
+      <section class="section third">
+        <p class="section-kicker">Tech</p>
+        <h2>数据流程</h2>
+        <ul class="list">
+          <li>读取配置。</li>
+          <li>抓取 RSS / Atom / X。</li>
+          <li>清洗、打分、去重。</li>
+          <li>人物标签识别。</li>
+          <li>AI 摘要或本地兜底。</li>
+        </ul>
+      </section>
+
+      <section class="section third">
+        <p class="section-kicker">Environment</p>
+        <h2>环境变量</h2>
+        <ul class="list">
+          <li>DEEPSEEK_API_KEY</li>
+          <li>DEEPSEEK_MODEL</li>
+          <li>ENABLE_X_FEEDS</li>
+          <li>X_STATUS_API_BASE</li>
+          <li>RSSHUB_BASE_URL</li>
+        </ul>
+      </section>
+
+      <section class="section third">
+        <p class="section-kicker">Success</p>
+        <h2>成功标准</h2>
+        <ul class="list">
+          <li>打开不压迫。</li>
+          <li>5-10 分钟读完重点。</li>
+          <li>摘要不胡编。</li>
+          <li>每条可追溯。</li>
+          <li>筛选明显减负。</li>
+        </ul>
+      </section>
+
+      <section id="scope" class="section">
+        <p class="section-kicker">Scope</p>
+        <h2>v1 与 v2 边界</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>v1 保留</th>
+                <th>v2 候选</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>完整信息流、筛选、搜索、收藏、来源透明、方法论弹窗。</td>
+                <td>精选 / 全部切换、日期归档、RSS 输出、邮件订阅、微信推送。</td>
+              </tr>
+              <tr>
+                <td>单用户静态配置，适合 Vercel 轻量部署。</td>
+                <td>自定义关注名单、用户登录、收藏同步、来源提报入口。</td>
+              </tr>
+              <tr>
+                <td>单条资讯卡片，事实摘要，原文跳转。</td>
+                <td>事件聚合：同一事件合并 Blog、X、媒体报道。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-kicker">North Star</p>
+        <h2>北极星原则</h2>
+        <blockquote class="quote">完整保留信息，但把阅读压力降到最低；所有判断都能追溯到原文。</blockquote>
+      </section>
+    </div>
+
+    <footer class="footer">
+      AI Daily Pulse v1 产品文档｜冷静、透明、可追溯、低噪声
+    </footer>
+  </main>
+</body>
+</html>
