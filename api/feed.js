@@ -1,4 +1,4 @@
-const { loadConfig, fetchSources } = require("../lib/sources");
+const { buildRssHubSources, loadConfig, fetchSources } = require("../lib/sources");
 const { cleanItems } = require("../lib/clean");
 const { tagPeople } = require("../lib/people");
 const { summarizeItems } = require("../lib/summarize");
@@ -14,7 +14,9 @@ module.exports = async function handler(request, response) {
 
   try {
     const config = loadConfig();
-    const rawItems = await fetchSources(config.sources);
+    const rssHubSources = buildRssHubSources(config.pendingSources);
+    const activeSources = [...config.sources, ...rssHubSources];
+    const rawItems = await fetchSources(activeSources);
     const cleanFeed = cleanItems(rawItems);
     const peopleTaggedFeed = tagPeople(cleanFeed, config.pendingSources);
     const items = await summarizeItems(peopleTaggedFeed);
@@ -22,7 +24,7 @@ module.exports = async function handler(request, response) {
 
     response.status(200).json({
       updatedAt: new Date().toISOString(),
-      sources: config.sources,
+      sources: activeSources,
       pendingSources: config.pendingSources,
       items: finalItems,
       warning: items.length ? undefined : "No feed items matched the current clean-feed rules."

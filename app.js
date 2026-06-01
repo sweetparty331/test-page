@@ -44,11 +44,15 @@ const demoFeed = {
     { name: "OpenAI Blog", group: "大模型公司", type: "Blog", url: "https://openai.com/news/rss.xml" },
     { name: "Google AI Blog", group: "大模型公司", type: "Blog", url: "https://blog.google/technology/ai/rss/" },
     { name: "Google DeepMind Blog", group: "大模型公司", type: "Blog", url: "https://deepmind.google/blog/rss.xml" },
-    { name: "NVIDIA AI Blog", group: "大模型公司", type: "Blog", url: "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/" }
+    { name: "NVIDIA AI Blog", group: "大模型公司", type: "Blog", url: "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/" },
+    { name: "Huawei News", group: "大模型公司", type: "News", url: "https://www.huawei.com/cn/rss-feeds/huawei-updates/rss" },
+    { name: "Sam Altman Blog", group: "AI大佬 · 美国", type: "Blog", url: "https://blog.samaltman.com/posts.atom" }
   ],
   pendingSources: [
     { name: "Anthropic News", group: "大模型公司", type: "Blog", url: "https://www.anthropic.com/news", reason: "官方 RSS 未确认，先保留官方页面链接。" },
     { name: "Meta AI Blog", group: "大模型公司", type: "Blog", url: "https://ai.meta.com/blog/", reason: "官方 RSS 未确认，先保留官方页面链接。" },
+    { name: "DeepSeek X", group: "大模型公司", type: "X", url: "https://x.com/deepseek_ai", reason: "配置 RSSHUB_BASE_URL 后可尝试通过 RSSHub 抓取。" },
+    { name: "DeepLearning.AI / The Batch", group: "技术博客", type: "Blog", url: "https://www.deeplearning.ai/the-batch/", reason: "官方页面保留；常见 RSS 地址当前不可用。" },
     { name: "The Gradient", group: "技术博客", type: "Blog", url: "https://thegradient.pub/rss/", reason: "技术博客名单保留，暂不真实接入。" },
     { name: "Yannic Kilcher", group: "技术博客", type: "YouTube", url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew", reason: "YouTube 名单保留，暂不真实接入。" },
     ...demoPeopleSources
@@ -236,9 +240,22 @@ function createSourceItem(source, status) {
     <strong>${escapeHtml(source.name || "未命名来源")} · ${escapeHtml(source.type || "RSS")} · ${escapeHtml(status)}</strong>
     <span>${escapeHtml(source.group || "未分组")}</span>
     <span>${escapeHtml(source.url || "")}</span>
+    ${renderSourceLinks(source.links)}
     ${source.reason ? `<span>${escapeHtml(source.reason)}</span>` : ""}
   `;
   return item;
+}
+
+function renderSourceLinks(links = []) {
+  if (!Array.isArray(links) || !links.length) {
+    return "";
+  }
+
+  const linkItems = links.map((link) => {
+    return `<a href="${escapeAttribute(link.url || "#")}" target="_blank" rel="noreferrer">${escapeHtml(link.label || link.url || "来源")}</a>`;
+  }).join("");
+
+  return `<div class="source-links">${linkItems}</div>`;
 }
 
 function renderCards() {
