@@ -163,22 +163,38 @@ document.querySelectorAll("[data-date]").forEach((button) => {
 loadFeed();
 
 async function loadFeed(forceRefresh = false) {
-  setStateMessage("正在拉取干净资讯...");
+  setStateMessage(forceRefresh ? "正在实时拉取干净资讯..." : "正在读取今日快照...");
   elements.refreshButton.disabled = true;
 
   try {
-    const response = await fetch(`/api/feed${forceRefresh ? "?refresh=1" : ""}`);
-    if (!response.ok) {
-      throw new Error(`Feed request failed: ${response.status}`);
-    }
-    const data = await response.json();
+    const data = forceRefresh ? await fetchLiveFeed() : await fetchSnapshotFeed();
     applyFeed(data);
   } catch (error) {
     applyFeed(demoFeed);
-    setStateMessage("暂时无法连接后端接口，已展示本地演示数据。部署到 Vercel 后会调用 /api/feed。");
+    setStateMessage("暂时无法读取今日快照和后端接口，已展示本地演示数据。");
   } finally {
     elements.refreshButton.disabled = false;
   }
+}
+
+async function fetchSnapshotFeed() {
+  try {
+    return await fetchJson(`data/latest.json?t=${Date.now()}`);
+  } catch (error) {
+    return fetchLiveFeed();
+  }
+}
+
+function fetchLiveFeed() {
+  return fetchJson(`/api/feed?refresh=${Date.now()}`);
+}
+
+async function fetchJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Feed request failed: ${response.status}`);
+  }
+  return response.json();
 }
 
 function applyFeed(data) {

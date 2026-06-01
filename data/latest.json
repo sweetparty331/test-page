@@ -1,0 +1,1075 @@
+{
+  "updatedAt": "2026-06-01T11:45:41.764Z",
+  "sources": [
+    {
+      "name": "OpenAI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://openai.com/news/rss.xml"
+    },
+    {
+      "name": "Google AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blog.google/technology/ai/rss/"
+    },
+    {
+      "name": "Google DeepMind Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://deepmind.google/blog/rss.xml"
+    },
+    {
+      "name": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/"
+    },
+    {
+      "name": "Huawei News",
+      "group": "大模型公司",
+      "type": "News",
+      "url": "https://www.huawei.com/cn/rss-feeds/huawei-updates/rss"
+    },
+    {
+      "name": "Sam Altman Blog",
+      "group": "AI大佬 · 美国",
+      "type": "Blog",
+      "url": "https://blog.samaltman.com/posts.atom"
+    },
+    {
+      "name": "Microsoft AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blogs.microsoft.com/ai/feed/"
+    },
+    {
+      "name": "Microsoft Research AI",
+      "group": "研究机构",
+      "type": "Blog",
+      "url": "https://www.microsoft.com/en-us/research/feed/?facet%5Btax%5D%5Bmsr-research-area%5D%5B0%5D=13556"
+    },
+    {
+      "name": "arXiv cs.AI",
+      "group": "论文",
+      "type": "Paper",
+      "url": "https://export.arxiv.org/rss/cs.AI"
+    },
+    {
+      "name": "Latent Space",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://www.latent.space/feed"
+    },
+    {
+      "name": "The Decoder",
+      "group": "行业媒体",
+      "type": "News",
+      "url": "https://the-decoder.com/feed/"
+    },
+    {
+      "name": "DeepSeek X",
+      "group": "大模型公司",
+      "type": "X",
+      "handle": "deepseek_ai",
+      "url": "https://x.com/deepseek_ai"
+    },
+    {
+      "name": "李飞飞 · X",
+      "group": "AI大佬 · 中国",
+      "type": "X",
+      "handle": "drfeifei",
+      "url": "https://x.com/drfeifei"
+    },
+    {
+      "name": "Sam Altman · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "sama",
+      "url": "https://x.com/sama"
+    },
+    {
+      "name": "Elon Musk · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "elonmusk",
+      "url": "https://x.com/elonmusk"
+    },
+    {
+      "name": "Dario Amodei · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "DarioAmodei",
+      "url": "https://x.com/DarioAmodei"
+    },
+    {
+      "name": "Demis Hassabis · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "demishassabis",
+      "url": "https://x.com/demishassabis"
+    },
+    {
+      "name": "黄仁勋 · NVIDIA X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "NVIDIA",
+      "url": "https://x.com/NVIDIA"
+    },
+    {
+      "name": "Yann LeCun · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "ylecun",
+      "url": "https://x.com/ylecun"
+    },
+    {
+      "name": "Ilya Sutskever · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "ilyasut",
+      "url": "https://x.com/ilyasut"
+    },
+    {
+      "name": "Andrew Ng · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "AndrewYNg",
+      "url": "https://x.com/AndrewYNg"
+    },
+    {
+      "name": "Andrej Karpathy · X",
+      "group": "AI大佬 · 美国",
+      "type": "X",
+      "handle": "karpathy",
+      "url": "https://x.com/karpathy"
+    }
+  ],
+  "pendingSources": [
+    {
+      "name": "Anthropic News",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://www.anthropic.com/news",
+      "reason": "官方 RSS 未确认，先保留官方页面链接。"
+    },
+    {
+      "name": "Meta AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://ai.meta.com/blog/",
+      "reason": "官方 RSS 未确认，先保留官方页面链接。"
+    },
+    {
+      "name": "DeepSeek X",
+      "group": "大模型公司",
+      "type": "X",
+      "url": "https://x.com/deepseek_ai",
+      "rssHubPath": "/twitter/user/deepseek_ai",
+      "reason": "X 默认不稳定接入；配置 RSSHUB_BASE_URL 后可尝试通过 RSSHub 抓取。"
+    },
+    {
+      "name": "DeepLearning.AI / The Batch",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://www.deeplearning.ai/the-batch/",
+      "reason": "官方页面保留；常见 RSS 地址当前不可用，后续可接 Newsletter API、RSSHub 或页面解析。"
+    },
+    {
+      "name": "The Gradient",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://thegradient.pub/rss/",
+      "reason": "技术博客名单保留，暂不真实接入。"
+    },
+    {
+      "name": "Yannic Kilcher",
+      "group": "技术博客",
+      "type": "YouTube",
+      "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCZHmQk67mSJgfCCTn7xBfew",
+      "reason": "YouTube 名单保留，暂不真实接入。"
+    },
+    {
+      "name": "梁文锋",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.deepseek.com/",
+      "links": [
+        {
+          "label": "DeepSeek X",
+          "url": "https://x.com/deepseek_ai",
+          "rssHubPath": "/twitter/user/deepseek_ai"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入 DeepSeek 官方动态或可靠第三方源。"
+    },
+    {
+      "name": "任正非",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.huawei.com/cn/news",
+      "links": [
+        {
+          "label": "华为官方新闻 RSS",
+          "url": "https://www.huawei.com/cn/rss-feeds/huawei-updates/rss"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入华为官方新闻或访谈源。"
+    },
+    {
+      "name": "周靖人",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.alibabacloud.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入阿里云官方动态或公开演讲源。"
+    },
+    {
+      "name": "陈天石",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.cambricon.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入寒武纪官方动态或公开访谈源。"
+    },
+    {
+      "name": "何恺明",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://kaiminghe.github.io/",
+      "reason": "人物动态源保留；个人主页无稳定资讯 RSS，后续可接论文、主页或机构动态。"
+    },
+    {
+      "name": "李飞飞",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://profiles.stanford.edu/fei-fei-li",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/drfeifei",
+          "rssHubPath": "/twitter/user/drfeifei"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Stanford/HAI 动态或公开演讲源。"
+    },
+    {
+      "name": "王兴兴",
+      "group": "AI大佬 · 中国",
+      "type": "Person",
+      "url": "https://www.unitree.com/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接宇树科技官方动态或公开访谈源。"
+    },
+    {
+      "name": "Sam Altman",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://blog.samaltman.com/",
+      "rssHubPath": "/twitter/user/sama",
+      "links": [
+        {
+          "label": "个人博客 Atom",
+          "url": "https://blog.samaltman.com/posts.atom"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/sama",
+          "rssHubPath": "/twitter/user/sama"
+        }
+      ],
+      "reason": "个人博客已真实接入；X 动态需 API、RSSHub 或可靠第三方服务。"
+    },
+    {
+      "name": "Elon Musk",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://x.com/elonmusk",
+      "rssHubPath": "/twitter/user/elonmusk",
+      "reason": "人物动态源保留；X 不作为默认 RSS 来源，稳定接入需 X API 或第三方 RSS。"
+    },
+    {
+      "name": "Dario Amodei",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.anthropic.com/",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/DarioAmodei",
+          "rssHubPath": "/twitter/user/DarioAmodei"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Anthropic 官方动态或访谈源。"
+    },
+    {
+      "name": "Demis Hassabis",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://deepmind.google/",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/demishassabis",
+          "rssHubPath": "/twitter/user/demishassabis"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 DeepMind 官方动态或公开演讲源。"
+    },
+    {
+      "name": "黄仁勋",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/leadership/jen-hsun-huang/",
+      "links": [
+        {
+          "label": "NVIDIA X",
+          "url": "https://x.com/NVIDIA",
+          "rssHubPath": "/twitter/user/NVIDIA"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 NVIDIA 官方新闻或主题演讲源。"
+    },
+    {
+      "name": "Mark Zuckerberg",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://about.meta.com/media-gallery/executives/mark-zuckerberg/",
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Meta 官方动态或公开发言源。"
+    },
+    {
+      "name": "Yann LeCun",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://yann.lecun.com/",
+      "rssHubPath": "/twitter/user/ylecun",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/ylecun",
+          "rssHubPath": "/twitter/user/ylecun"
+        }
+      ],
+      "reason": "人物动态源保留；个人主页不适合作为每日 RSS，后续可接论文、Meta 动态或公开演讲源。"
+    },
+    {
+      "name": "Ilya Sutskever",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://ssi.inc/",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/ilyasut",
+          "rssHubPath": "/twitter/user/ilyasut"
+        }
+      ],
+      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 SSI 官方动态或公开访谈源。"
+    },
+    {
+      "name": "Andrew Ng",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://www.deeplearning.ai/the-batch/",
+      "rssHubPath": "/twitter/user/AndrewYNg",
+      "links": [
+        {
+          "label": "个人主页",
+          "url": "https://www.andrewng.org/"
+        },
+        {
+          "label": "DeepLearning.AI / The Batch",
+          "url": "https://www.deeplearning.ai/the-batch/"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/AndrewYNg",
+          "rssHubPath": "/twitter/user/AndrewYNg"
+        }
+      ],
+      "reason": "人物动态源保留；后续可接 DeepLearning.AI/The Batch 等稳定内容源。"
+    },
+    {
+      "name": "Andrej Karpathy",
+      "group": "AI大佬 · 美国",
+      "type": "Person",
+      "url": "https://karpathy.ai/",
+      "rssHubPath": "/twitter/user/karpathy",
+      "links": [
+        {
+          "label": "X",
+          "url": "https://x.com/karpathy",
+          "rssHubPath": "/twitter/user/karpathy"
+        }
+      ],
+      "reason": "人物动态源保留；后续可接个人博客、YouTube 或 X API。"
+    }
+  ],
+  "items": [
+    {
+      "sourceType": "X",
+      "author": "NVIDIA",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-06-01T05:06:57.000Z",
+      "category": "技术",
+      "title": "Create, build, and play: https://nvidianews.nvidia.com/news/nvidia-micr…",
+      "originalTitle": "Create, build, and play: https://nvidianews.nvidia.com/news/nvidia-microsoft-wi…",
+      "summary": "原文：Create, build, and play: https://nvidianews.nvidia.com/news…",
+      "summaryEn": "Create, build, and play: https://nvidianews.nvidia.com/news/nvidia-microsoft-windows-pcs-agents-rtx-spark",
+      "whyItMatters": "",
+      "url": "https://x.com/nvidia/status/2061313530914312674",
+      "dedupeKey": "https://x.com/nvidia/status/2061313530914312674",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "NVIDIA",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-06-01T05:06:44.000Z",
+      "category": "技术",
+      "title": "NVIDIA RTX Spark: a 1-petaflop superchip, the full CUDA and RTX ecosyst…",
+      "originalTitle": "NVIDIA RTX Spark: a 1-petaflop superchip, the full CUDA and RTX ecosystem, and …",
+      "summary": "原文：NVIDIA RTX Spark: a 1-petaflop superchip, the full CUDA and…",
+      "summaryEn": "NVIDIA RTX Spark: a 1-petaflop superchip, the full CUDA and RTX ecosystem, and Windows-native agents.",
+      "whyItMatters": "",
+      "url": "https://x.com/nvidia/status/2061313474005737829",
+      "dedupeKey": "https://x.com/nvidia/status/2061313474005737829",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-06-01T04:30:11.000Z",
+      "category": "产品",
+      "title": "NVIDIA Levels Up Local AI Agents Across RTX PCs and DGX Spark",
+      "originalTitle": "NVIDIA Levels Up Local AI Agents Across RTX PCs and DGX Spark",
+      "summary": "原文：Personal agents are exploding in popularity, with open sour…",
+      "summaryEn": "Personal agents are exploding in popularity, with open source projects like OpenClaw and Hermes seeing rapid adoption by AI developer communities on GitHub.",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-computex-spark-local-agents/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/rtx-ai-garage-computex-spark-local-agents",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "Sam Altman",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-05-31T16:07:13.000Z",
+      "category": "论文",
+      "title": "OpenAI Robotics is hiring, looking for exceptional full-stack hardware,…",
+      "originalTitle": "OpenAI Robotics is hiring, looking for exceptional full-stack hardware, ops, sy…",
+      "summary": "原文：OpenAI Robotics is hiring, looking for exceptional full-sta…",
+      "summaryEn": "OpenAI Robotics is hiring, looking for exceptional full-stack hardware, ops, systems, and ML engineers to help us program and manufacture robots that are useful for society.",
+      "whyItMatters": "",
+      "url": "https://x.com/sama/status/2061117302528188712",
+      "dedupeKey": "https://x.com/sama/status/2061117302528188712",
+      "people": [
+        "Sam Altman"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "News",
+      "author": "The Decoder",
+      "group": "行业媒体",
+      "publishedAt": "2026-05-31T11:37:20.000Z",
+      "category": "产品",
+      "title": "Ask AI what goes with chicken and the answer depends on whether it lear…",
+      "originalTitle": "Ask AI what goes with chicken and the answer depends on whether it learned from recipes or molecules",
+      "summary": "原文：With \"Epicure,\" London-based startup Kaikaku.AI presents th…",
+      "summaryEn": "With \"Epicure,\" London-based startup Kaikaku.AI presents three AI models that are the first to clearly separate whether an ingredient fits a recipe or is chemically related.",
+      "whyItMatters": "",
+      "url": "https://the-decoder.com/ask-ai-what-goes-with-chicken-and-the-answer-depends-on-whether-it-learned-from-recipes-or-molecules/",
+      "dedupeKey": "https://the-decoder.com/ask-ai-what-goes-with-chicken-and-the-answer-depends-on-whether-it-learned-from-recipes-or-molecules",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "News",
+      "author": "The Decoder",
+      "group": "行业媒体",
+      "publishedAt": "2026-05-31T09:42:11.000Z",
+      "category": "论文",
+      "title": "Anthropic study finds men use AI coding agents more than twice as often…",
+      "originalTitle": "Anthropic study finds men use AI coding agents more than twice as often as women in social science research",
+      "summary": "原文：Researchers with typically male names use coding agents mor…",
+      "summaryEn": "Researchers with typically male names use coding agents more than twice as often as those with typically female names, even within the same discipline and career level, according to an Anthropic study.",
+      "whyItMatters": "",
+      "url": "https://the-decoder.com/anthropic-study-finds-men-use-ai-coding-agents-more-than-twice-as-often-as-women-in-social-science-research/",
+      "dedupeKey": "https://the-decoder.com/anthropic-study-finds-men-use-ai-coding-agents-more-than-twice-as-often-as-women-in-social-science-research",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "News",
+      "author": "The Decoder",
+      "group": "行业媒体",
+      "publishedAt": "2026-05-31T07:48:41.000Z",
+      "category": "论文",
+      "title": "AI search agents often confirm what they already know instead of actual…",
+      "originalTitle": "AI search agents often confirm what they already know instead of actually researching the web",
+      "summary": "原文：Leading AI search agents like GPT-5.4 and Kimi K2.6 don't a…",
+      "summaryEn": "Leading AI search agents like GPT-5.4 and Kimi K2.6 don't appear to do much actual research on established benchmarks.",
+      "whyItMatters": "",
+      "url": "https://the-decoder.com/ai-search-agents-often-confirm-what-they-already-know-instead-of-actually-researching-the-web/",
+      "dedupeKey": "https://the-decoder.com/ai-search-agents-often-confirm-what-they-already-know-instead-of-actually-researching-the-web",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "News",
+      "author": "The Decoder",
+      "group": "行业媒体",
+      "publishedAt": "2026-05-30T16:18:56.000Z",
+      "category": "产品",
+      "title": "Microsoft and Nvidia reportedly team up on AI PCs that run actual agent…",
+      "originalTitle": "Microsoft and Nvidia reportedly team up on AI PCs that run actual agents instead of Copilot",
+      "summary": "原文：Nvidia is pushing into the PC market with its own chips as …",
+      "summaryEn": "Nvidia is pushing into the PC market with its own chips as the main processor.",
+      "whyItMatters": "",
+      "url": "https://the-decoder.com/microsoft-and-nvidia-reportedly-team-up-on-ai-pcs-that-run-actual-agents-instead-of-copilot/",
+      "dedupeKey": "https://the-decoder.com/microsoft-and-nvidia-reportedly-team-up-on-ai-pcs-that-run-actual-agents-instead-of-copilot",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "News",
+      "author": "The Decoder",
+      "group": "行业媒体",
+      "publishedAt": "2026-05-30T12:44:12.000Z",
+      "category": "产品",
+      "title": "Making AI chatbots helpful weakens their ability to simulate human beha…",
+      "originalTitle": "Making AI chatbots helpful weakens their ability to simulate human behavior, large-scale study finds",
+      "summary": "原文：A large-scale study covering 208,000 participants and 26 mi…",
+      "summaryEn": "A large-scale study covering 208,000 participants and 26 million responses shows that the very training that turns language models into helpful chatbots weakens their ability to replicate human behavior.",
+      "whyItMatters": "",
+      "url": "https://the-decoder.com/making-ai-chatbots-helpful-weakens-their-ability-to-simulate-human-behavior-large-scale-study-finds/",
+      "dedupeKey": "https://the-decoder.com/making-ai-chatbots-helpful-weakens-their-ability-to-simulate-human-behavior-large-scale-study-finds",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "Fei-Fei Li",
+      "group": "AI大佬 · 中国",
+      "publishedAt": "2026-05-29T16:56:10.000Z",
+      "category": "论文",
+      "title": "I’m very excited by this new benchmark dataset for visual generation th…",
+      "originalTitle": "I’m very excited by this new benchmark dataset for visual generation that is su…",
+      "summary": "原文：I’m very excited by this new benchmark dataset for visual g…",
+      "summaryEn": "I’m very excited by this new benchmark dataset for visual generation that is suitable for the modern era of large scale generative models!🤩",
+      "whyItMatters": "",
+      "url": "https://x.com/drfeifei/status/2060404846734512205",
+      "dedupeKey": "https://x.com/drfeifei/status/2060404846734512205",
+      "people": [
+        "李飞飞"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 中国"
+      ]
+    },
+    {
+      "sourceType": "Blog",
+      "author": "OpenAI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-29T00:00:00.000Z",
+      "category": "技术",
+      "title": "A shared playbook for trustworthy third party evaluations",
+      "originalTitle": "A shared playbook for trustworthy third party evaluations",
+      "summary": "原文：OpenAI shares guidance on third-party AI evaluations, cover…",
+      "summaryEn": "OpenAI shares guidance on third-party AI evaluations, covering how to assess model capabilities, safeguards, and validity for frontier systems.",
+      "whyItMatters": "",
+      "url": "https://openai.com/index/trustworthy-third-party-evaluations-foundations",
+      "dedupeKey": "https://openai.com/index/trustworthy-third-party-evaluations-foundations",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-28T18:41:24.000Z",
+      "category": "技术",
+      "title": "The Age of Async Agents — Cognition's Walden Yan & OpenInspect's Cole M…",
+      "originalTitle": "The Age of Async Agents — Cognition's Walden Yan & OpenInspect's Cole Murray",
+      "summary": "原文：80% Devin Commits, Spec-to-PR Workflows, Full VMs, Agent Me…",
+      "summaryEn": "80% Devin Commits, Spec-to-PR Workflows, Full VMs, Agent Memory, and PMs Shipping Code",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/cognition",
+      "dedupeKey": "https://www.latent.space/p/cognition",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-28T16:00:00.000Z",
+      "category": "论文",
+      "title": "Data Formulator 0.7: AI-powered data analytics for enterprise data",
+      "originalTitle": "Data Formulator 0.7: AI-powered data analytics for enterprise data",
+      "summary": "原文：Data Formulator introduces AI-powered analytics for enterpr…",
+      "summaryEn": "Data Formulator introduces AI-powered analytics for enterprise data workflows.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "OpenAI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-28T12:00:00.000Z",
+      "category": "技术",
+      "title": "How Endava builds an agentic organization with Codex",
+      "originalTitle": "How Endava builds an agentic organization with Codex",
+      "summary": "原文：Learn how Endava uses Codex to build an agentic organizatio…",
+      "summaryEn": "Learn how Endava uses Codex to build an agentic organization, accelerating software delivery and reducing requirements analysis from weeks to hours.",
+      "whyItMatters": "",
+      "url": "https://openai.com/index/endava",
+      "dedupeKey": "https://openai.com/index/endava",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-27T17:46:16.000Z",
+      "category": "技术",
+      "title": "🔬ESM: The Bitter Lesson is Coming for Proteins - Alex Rives, BioHub",
+      "originalTitle": "🔬ESM: The Bitter Lesson is Coming for Proteins - Alex Rives, BioHub",
+      "summary": "原文：Biohub&#8217;s Protein World Model: ESMC-6B, ESMFold2, 6.8B…",
+      "summaryEn": "Biohub&#8217;s Protein World Model: ESMC-6B, ESMFold2, 6.8B proteins, 1.1B structures, antibody design, SAEs, & the potential for programmable biology",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/esmfold2",
+      "dedupeKey": "https://www.latent.space/p/esmfold2",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "OpenAI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-27T07:00:00.000Z",
+      "category": "技术",
+      "title": "Building self-improving tax agents with Codex",
+      "originalTitle": "Building self-improving tax agents with Codex",
+      "summary": "原文：See how OpenAI, Thrive, and Crete built a self-improving ta…",
+      "summaryEn": "See how OpenAI, Thrive, and Crete built a self-improving tax agent with Codex, automating filings, improving accuracy, and accelerating workflows.",
+      "whyItMatters": "",
+      "url": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+      "dedupeKey": "https://openai.com/index/building-self-improving-tax-agents-with-codex",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "OpenAI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-27T00:00:00.000Z",
+      "category": "技术",
+      "title": "Warp’s big bet on building open source with GPT-5.5",
+      "originalTitle": "Warp’s big bet on building open source with GPT-5.5",
+      "summary": "原文：Warp uses GPT-5.5 and OpenAI models to coordinate coding ag…",
+      "summaryEn": "Warp uses GPT-5.5 and OpenAI models to coordinate coding agents across local, cloud, and open-source development workflows.",
+      "whyItMatters": "",
+      "url": "https://openai.com/index/warp",
+      "dedupeKey": "https://openai.com/index/warp",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-23T04:21:17.000Z",
+      "category": "技术",
+      "title": "[AINews] All Model Labs are now Agent Labs",
+      "originalTitle": "[AINews] All Model Labs are now Agent Labs",
+      "summary": "原文：a quiet day lets us tie together a few quotes as all model …",
+      "summaryEn": "a quiet day lets us tie together a few quotes as all model labs become agent labs",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/ainews-all-model-labs-are-now-agent",
+      "dedupeKey": "https://www.latent.space/p/ainews-all-model-labs-are-now-agent",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-21T20:37:40.000Z",
+      "category": "技术",
+      "title": "Giving Agents Computers — Ivan Burazin, Daytona",
+      "originalTitle": "Giving Agents Computers — Ivan Burazin, Daytona",
+      "summary": "原文：We chat with Daytona's CEO about their insane 74% MoM Growt…",
+      "summaryEn": "We chat with Daytona's CEO about their insane 74% MoM Growth, 850K Daily Runs, Bare Metal Sandboxes, RL Evals, and the New Agent Cloud",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/daytona",
+      "dedupeKey": "https://www.latent.space/p/daytona",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-21T17:00:00.000Z",
+      "category": "论文",
+      "title": "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized f…",
+      "originalTitle": "MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models",
+      "summary": "原文：MagenticLite is an agentic system for small models that wor…",
+      "summaryEn": "MagenticLite is an agentic system for small models that works across the browser and local file system in a single workflow.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-21T16:00:17.000Z",
+      "category": "论文",
+      "title": "NVIDIA GTC Taipei at COMPUTEX: Live Updates on What’s Next in AI",
+      "originalTitle": "NVIDIA GTC Taipei at COMPUTEX: Live Updates on What’s Next in AI",
+      "summary": "原文：At NVIDIA GTC Taipei at COMPUTEX, the world’s developers, r…",
+      "summaryEn": "At NVIDIA GTC Taipei at COMPUTEX, the world’s developers, researchers and industry leaders are converging to dive into the latest breakthroughs shaping every industry, covering topics spanning AI factories and scaling i…",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "News",
+      "author": "Huawei News",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-21T06:30:27.593Z",
+      "category": "技术",
+      "title": "拥抱Agentverse，启航具身智能新时代",
+      "originalTitle": "拥抱Agentverse，启航具身智能新时代",
+      "summary": "在2026年世界电信和信息社会日大会期间，华为无线网络业务副总裁、首席营销官赵东发表了题为“拥抱Agentverse，…",
+      "summaryEn": "在2026年世界电信和信息社会日大会期间，华为无线网络业务副总裁、首席营销官赵东发表了题为“拥抱Agentverse，启航具身智能新时代”的主题演讲。",
+      "whyItMatters": "",
+      "url": "www.huawei.com/cn/news/2026/5/embodied-intelligence-agentverse",
+      "dedupeKey": "www.huawei.com/cn/news/2026/5/embodied-intelligence-agentverse",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-20T22:42:06.000Z",
+      "category": "技术",
+      "title": "Railway: The Agent-Native Cloud — Jake Cooper",
+      "originalTitle": "Railway: The Agent-Native Cloud — Jake Cooper",
+      "summary": "原文：3M Users, 100K Signups/Week, Own-Metal Data Centers, $200K+…",
+      "summaryEn": "3M Users, 100K Signups/Week, Own-Metal Data Centers, $200K+ Coding Agent Spend, and the Death of PRs",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/railway",
+      "dedupeKey": "https://www.latent.space/p/railway",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "Andrew Ng",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-05-20T17:08:55.000Z",
+      "category": "技术",
+      "title": "New course: Build AI agents that generate images and videos -- an under…",
+      "originalTitle": "New course: Build AI agents that generate images and videos -- an under-explore…",
+      "summary": "原文：New course: Build AI agents that generate images and videos…",
+      "summaryEn": "New course: Build AI agents that generate images and videos -- an under-explored frontier.",
+      "whyItMatters": "",
+      "url": "https://x.com/AndrewYNg/status/2057146565500998024",
+      "dedupeKey": "https://x.com/andrewyng/status/2057146565500998024",
+      "people": [
+        "Andrew Ng"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Latent Space",
+      "group": "技术博客",
+      "publishedAt": "2026-05-20T03:34:17.000Z",
+      "category": "技术",
+      "title": "[AINews] Google I/O 2026: Gemini 3.5 Flash, Omni (NanoBanana for Video)…",
+      "originalTitle": "[AINews] Google I/O 2026: Gemini 3.5 Flash, Omni (NanoBanana for Video), Spark (background agents), and Antigravity 2.0",
+      "summary": "原文：Google has been busy!",
+      "summaryEn": "Google has been busy!",
+      "whyItMatters": "",
+      "url": "https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash",
+      "dedupeKey": "https://www.latent.space/p/ainews-google-io-2026-gemini-35-flash",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "Demis Hassabis",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-05-20T01:05:20.000Z",
+      "category": "论文",
+      "title": "More info on Gemini 3.5 flash model here: https://blog.google/innovatio…",
+      "originalTitle": "More info on Gemini 3.5 flash model here: https://blog.google/innovation-and-ai…",
+      "summary": "原文：More info on Gemini 3.5 flash model here: https://blog.goog…",
+      "summaryEn": "More info on Gemini 3.5 flash model here: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+      "whyItMatters": "",
+      "url": "https://x.com/demishassabis/status/2056904072012145102",
+      "dedupeKey": "https://x.com/demishassabis/status/2056904072012145102",
+      "people": [
+        "Demis Hassabis"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "X",
+      "author": "Demis Hassabis",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-05-20T01:05:19.000Z",
+      "category": "产品",
+      "title": "Gemini 3.5 Flash is amazing! - Performs better than 3.1 Pro on coding &…",
+      "originalTitle": "Gemini 3.5 Flash is amazing! - Performs better than 3.1 Pro on coding & agentic…",
+      "summary": "原文：Gemini 3.5 Flash is amazing!",
+      "summaryEn": "Gemini 3.5 Flash is amazing!",
+      "whyItMatters": "",
+      "url": "https://x.com/demishassabis/status/2056904067406860545",
+      "dedupeKey": "https://x.com/demishassabis/status/2056904067406860545",
+      "people": [
+        "Demis Hassabis"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Google AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-19T17:45:00.000Z",
+      "category": "技术",
+      "title": "I/O 2026: Welcome to the agentic Gemini era",
+      "originalTitle": "I/O 2026: Welcome to the agentic Gemini era",
+      "summary": "原文：The latest from Google I/O: See how we’re helping you get m…",
+      "summaryEn": "The latest from Google I/O: See how we’re helping you get more done with Gemini.",
+      "whyItMatters": "",
+      "url": "https://blog.google/innovation-and-ai/sundar-pichai-io-2026/",
+      "dedupeKey": "https://blog.google/innovation-and-ai/sundar-pichai-io-2026",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Google AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-19T17:45:00.000Z",
+      "category": "产品",
+      "title": "Gemini 3.5: frontier intelligence with action",
+      "originalTitle": "Gemini 3.5: frontier intelligence with action",
+      "summary": "原文：At Google I/O we released Gemini 3.5, our latest series of …",
+      "summaryEn": "At Google I/O we released Gemini 3.5, our latest series of models combining frontier intelligence with action.",
+      "whyItMatters": "",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+      "dedupeKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-15T18:06:57.000Z",
+      "category": "论文",
+      "title": "Further Notes on Our Recent Research on AI Delegation and Long-Horizon …",
+      "originalTitle": "Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability",
+      "summary": "原文：Our recent paper, “LLMs Corrupt Your Documents When You Del…",
+      "summaryEn": "Our recent paper, “LLMs Corrupt Your Documents When You Delegate”, has generated discussion about the reliability of AI systems in delegated workflows.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-13T16:00:20.000Z",
+      "category": "论文",
+      "title": "GridSFM: A new, small foundation model for the electric grid",
+      "originalTitle": "GridSFM: A new, small foundation model for the electric grid",
+      "summary": "原文：Introducing GridSFM, a small foundation model that can pred…",
+      "summaryEn": "Introducing GridSFM, a small foundation model that can predict AC optimal power flow in milliseconds, boosting efficiency and unlocking cost savings.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-13T13:00:10.000Z",
+      "category": "技术",
+      "title": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and …",
+      "originalTitle": "Hermes Unlocks Self-Improving AI Agents, Powered by NVIDIA RTX PCs and DGX Spark",
+      "summary": "原文：Agentic AI is changing the way users get work done.",
+      "summaryEn": "Agentic AI is changing the way users get work done.",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/rtx-ai-garage-hermes-agent-dgx-spark",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-12T13:00:00.000Z",
+      "category": "论文",
+      "title": "Advancing AI for materials with MatterSim: experimental synthesis, fast…",
+      "originalTitle": "Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models",
+      "summary": "原文：MatterSim is expanding what AI can do for materials science…",
+      "summaryEn": "MatterSim is expanding what AI can do for materials science—from faster large-scale simulations to MatterSim-MT, a new multi-task model for simulating properties beyond potential energy surfaces alone.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-12T12:30:56.000Z",
+      "category": "产品",
+      "title": "NVIDIA and SAP Bring Trust to Specialized Agents",
+      "originalTitle": "NVIDIA and SAP Bring Trust to Specialized Agents",
+      "summary": "原文：Announced today at SAP Sapphire — where NVIDIA founder and …",
+      "summaryEn": "Announced today at SAP Sapphire — where NVIDIA founder and CEO Jensen Huang joined SAP CEO Christian Klein’s keynote by video — SAP and NVIDIA’s expanded collaboration helps enterprises run specialized agents with secur…",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/sap-specialized-agents/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/sap-specialized-agents",
+      "people": [
+        "黄仁勋"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-11T17:19:28.000Z",
+      "category": "论文",
+      "title": "SocialReasoning-Bench: Measuring whether AI agents act in users’ best i…",
+      "originalTitle": "SocialReasoning-Bench: Measuring whether AI agents act in users’ best interests",
+      "summary": "原文：Using SocialReasoning Bench, we observed a stable pattern a…",
+      "summaryEn": "Using SocialReasoning Bench, we observed a stable pattern across models—agents execute competently, but fail to consistently improve the user’s position, even with explicit instructions to optimize for user interest.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "Microsoft Research AI",
+      "group": "研究机构",
+      "publishedAt": "2026-05-08T19:53:56.000Z",
+      "category": "论文",
+      "title": "Building realistic electric transmission grid dataset at scale: a pipel…",
+      "originalTitle": "Building realistic electric transmission grid dataset at scale: a pipeline from open dataset",
+      "summary": "原文：Microsoft Research is excited to release an open dataset of…",
+      "summaryEn": "Microsoft Research is excited to release an open dataset of approximate transmission topology of the U.S.",
+      "whyItMatters": "",
+      "url": "https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/",
+      "dedupeKey": "https://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-05-05T17:00:40.000Z",
+      "category": "技术",
+      "title": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterpris…",
+      "originalTitle": "NVIDIA and ServiceNow Partner on New Autonomous AI Agents for Enterprises",
+      "summary": "原文：Enterprise AI has learned to generate.",
+      "summaryEn": "Enterprise AI has learned to generate.",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/servicenow-autonomous-ai-agents-enterprises",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-04-30T20:00:39.000Z",
+      "category": "技术",
+      "title": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+      "originalTitle": "Nemotron Labs: What OpenClaw Agents Mean for Every Organization",
+      "summary": "原文：By early 2026, the open source project OpenClaw had become …",
+      "summaryEn": "By early 2026, the open source project OpenClaw had become a phenomenon.",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/what-openclaw-agents-mean-for-every-organization",
+      "people": [],
+      "peopleGroups": []
+    },
+    {
+      "sourceType": "X",
+      "author": "Andrej Karpathy",
+      "group": "AI大佬 · 美国",
+      "publishedAt": "2026-04-30T17:28:50.000Z",
+      "category": "产品",
+      "title": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights:…",
+      "originalTitle": "Fireside chat at Sequoia Ascent 2026 from a ~week ago. Some highlights: The fir…",
+      "summary": "原文：Fireside chat at Sequoia Ascent 2026 from a ~week ago.",
+      "summaryEn": "Fireside chat at Sequoia Ascent 2026 from a ~week ago.",
+      "whyItMatters": "",
+      "url": "https://x.com/karpathy/status/2049903821095354523",
+      "dedupeKey": "https://x.com/karpathy/status/2049903821095354523",
+      "people": [
+        "Andrej Karpathy"
+      ],
+      "peopleGroups": [
+        "AI大佬 · 美国"
+      ]
+    },
+    {
+      "sourceType": "Blog",
+      "author": "NVIDIA AI Blog",
+      "group": "大模型公司",
+      "publishedAt": "2026-04-28T16:00:28.000Z",
+      "category": "产品",
+      "title": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and …",
+      "originalTitle": "NVIDIA Launches Nemotron 3 Nano Omni Model, Unifying Vision, Audio and Language for up to 9x More Efficient AI Agents",
+      "summary": "原文：AI agent systems today juggle separate models for vision, s…",
+      "summaryEn": "AI agent systems today juggle separate models for vision, speech and language — losing time and context as they pass data from one model to the other.",
+      "whyItMatters": "",
+      "url": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents/",
+      "dedupeKey": "https://blogs.nvidia.com/blog/nemotron-3-nano-omni-multimodal-ai-agents",
+      "people": [],
+      "peopleGroups": []
+    }
+  ]
+}
