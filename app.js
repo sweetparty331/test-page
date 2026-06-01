@@ -46,7 +46,12 @@ const demoFeed = {
     { name: "Google DeepMind Blog", group: "大模型公司", type: "Blog", url: "https://deepmind.google/blog/rss.xml" },
     { name: "NVIDIA AI Blog", group: "大模型公司", type: "Blog", url: "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/" },
     { name: "Huawei News", group: "大模型公司", type: "News", url: "https://www.huawei.com/cn/rss-feeds/huawei-updates/rss" },
-    { name: "Sam Altman Blog", group: "AI大佬 · 美国", type: "Blog", url: "https://blog.samaltman.com/posts.atom" }
+    { name: "Sam Altman Blog", group: "AI大佬 · 美国", type: "Blog", url: "https://blog.samaltman.com/posts.atom" },
+    { name: "Microsoft AI Blog", group: "大模型公司", type: "Blog", url: "https://blogs.microsoft.com/ai/feed/" },
+    { name: "Microsoft Research AI", group: "研究机构", type: "Blog", url: "https://www.microsoft.com/en-us/research/feed/?facet%5Btax%5D%5Bmsr-research-area%5D%5B0%5D=13556" },
+    { name: "arXiv cs.AI", group: "论文", type: "Paper", url: "https://export.arxiv.org/rss/cs.AI" },
+    { name: "Latent Space", group: "技术博客", type: "Blog", url: "https://www.latent.space/feed" },
+    { name: "The Decoder", group: "行业媒体", type: "News", url: "https://the-decoder.com/feed/" }
   ],
   pendingSources: [
     { name: "Anthropic News", group: "大模型公司", type: "Blog", url: "https://www.anthropic.com/news", reason: "官方 RSS 未确认，先保留官方页面链接。" },
@@ -119,7 +124,9 @@ const elements = {
   settingsDialog: document.querySelector("#settingsDialog"),
   groupFilters: document.querySelector("#groupFilters"),
   categoryFilters: document.querySelector("#categoryFilters"),
+  sourceDetailsButton: document.querySelector("#sourceDetailsButton"),
   sourceList: document.querySelector("#sourceList"),
+  sourceSummary: document.querySelector("#sourceSummary"),
   searchInput: document.querySelector("#searchInput"),
   favoritesToggle: document.querySelector("#favoritesToggle"),
   overviewPanel: document.querySelector("#overviewPanel")
@@ -127,6 +134,7 @@ const elements = {
 
 elements.refreshButton.addEventListener("click", () => loadFeed(true));
 elements.settingsButton.addEventListener("click", () => elements.settingsDialog.showModal());
+elements.sourceDetailsButton.addEventListener("click", () => elements.settingsDialog.showModal());
 elements.searchInput.addEventListener("input", () => {
   state.filters.search = elements.searchInput.value.trim();
   renderCards();
@@ -173,6 +181,7 @@ function applyFeed(data) {
   elements.updatedAt.textContent = `更新于 ${formatDateTime(data.updatedAt || new Date().toISOString())}`;
   renderFilters();
   renderSources();
+  renderSourceSummary();
   renderCards();
 }
 
@@ -231,6 +240,13 @@ function renderSources() {
   state.pendingSources.forEach((source) => {
     elements.sourceList.appendChild(createSourceItem(source, "暂不接入"));
   });
+}
+
+function renderSourceSummary() {
+  const xCount = state.sources.filter((source) => source.type === "X").length;
+  const officialCount = state.sources.filter((source) => source.type !== "X").length;
+  const pendingCount = state.pendingSources.filter((source) => source.type !== "Person").length;
+  elements.sourceSummary.textContent = `真实 ${state.sources.length} 个｜官方/RSS ${officialCount}｜X ${xCount}｜候选 ${pendingCount}`;
 }
 
 function createSourceItem(source, status) {

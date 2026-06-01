@@ -162,13 +162,39 @@ button:focus-visible {
   background: var(--panel);
 }
 
+.source-status {
+  display: grid;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
 .filter-group h2,
+.source-status h2,
 .feed-head h2,
 .dialog-head h2 {
   margin: 0;
   font-size: 15px;
   line-height: 1.25;
   letter-spacing: 0;
+}
+
+.source-status p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.text-button {
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .filter-list {

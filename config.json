@@ -35,6 +35,36 @@
       "group": "AI大佬 · 美国",
       "type": "Blog",
       "url": "https://blog.samaltman.com/posts.atom"
+    },
+    {
+      "name": "Microsoft AI Blog",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://blogs.microsoft.com/ai/feed/"
+    },
+    {
+      "name": "Microsoft Research AI",
+      "group": "研究机构",
+      "type": "Blog",
+      "url": "https://www.microsoft.com/en-us/research/feed/?facet%5Btax%5D%5Bmsr-research-area%5D%5B0%5D=13556"
+    },
+    {
+      "name": "arXiv cs.AI",
+      "group": "论文",
+      "type": "Paper",
+      "url": "https://export.arxiv.org/rss/cs.AI"
+    },
+    {
+      "name": "Latent Space",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://www.latent.space/feed"
+    },
+    {
+      "name": "The Decoder",
+      "group": "行业媒体",
+      "type": "News",
+      "url": "https://the-decoder.com/feed/"
     }
   ],
   "pendingSources": [
