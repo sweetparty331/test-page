@@ -97,6 +97,7 @@ button:focus-visible {
 .updated-at,
 .result-count,
 .eyebrow,
+.snapshot-note,
 .footer,
 .dialog-note {
   margin: 0;
@@ -246,10 +247,14 @@ button:focus-visible {
 
 .feed-head {
   display: flex;
-  align-items: flex-end;
+  align-items: end;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 14px;
+}
+
+.snapshot-note {
+  margin-top: 6px;
 }
 
 .feed-tools {

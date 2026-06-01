@@ -17,7 +17,7 @@
     </div>
     <div class="topbar-actions">
       <span id="updatedAt" class="updated-at">等待更新</span>
-      <button id="refreshButton" class="button" type="button">刷新</button>
+      <button id="refreshButton" class="button" type="button">实时拉取</button>
       <button id="settingsButton" class="button button-ghost" type="button">设置</button>
     </div>
   </header>
@@ -55,8 +55,9 @@
     <section class="feed-panel" aria-live="polite">
       <div class="feed-head">
         <div>
-          <p class="eyebrow">今日重点</p>
+          <p class="eyebrow">每日快照</p>
           <h2>3秒扫完 AI 动态</h2>
+          <p class="snapshot-note">默认展示每日快照；实时拉取结果只临时显示，不会保存到快照。</p>
         </div>
         <p id="resultCount" class="result-count">0 条</p>
       </div>
