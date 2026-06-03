@@ -179,7 +179,19 @@ async function loadFeed(forceRefresh = false) {
 
 async function fetchSnapshotFeed() {
   try {
-    return await fetchJson(`data/latest.json?t=${Date.now()}`);
+    const snapshot = await fetchJson(`data/latest.json?t=${Date.now()}`);
+    if (isLowQualityFeed(snapshot) && window.location.protocol !== "file:") {
+      setStateMessage("今日快照摘要质量异常，正在改用实时拉取...");
+      try {
+        const liveFeed = await fetchLiveFeed();
+        if (!isLowQualityFeed(liveFeed)) {
+          return liveFeed;
+        }
+      } catch (error) {
+        // 如果实时接口也不可用，继续展示快照，避免页面空白。
+      }
+    }
+    return snapshot;
   } catch (error) {
     return fetchLiveFeed();
   }
@@ -206,6 +218,17 @@ function applyFeed(data) {
   renderSources();
   renderSourceSummary();
   renderCards();
+}
+
+function isLowQualityFeed(data) {
+  const items = Array.isArray(data.items) ? data.items : [];
+  if (!items.length) {
+    return true;
+  }
+
+  const fallbackCount = items.filter((item) => /^原文：/.test(item.summary || "")).length;
+  const chineseTitleCount = items.filter((item) => /[\u4e00-\u9fa5]/.test(item.title || "")).length;
+  return fallbackCount / items.length > 0.35 || chineseTitleCount < Math.ceil(items.length * 0.4);
 }
 
 function renderFilters() {

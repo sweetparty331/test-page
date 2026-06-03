@@ -19,10 +19,36 @@
       "url": "https://deepmind.google/blog/rss.xml"
     },
     {
+      "name": "Anthropic News",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://www.anthropic.com/news",
+      "parser": "anthropic",
+      "limit": 12
+    },
+    {
+      "name": "Meta Engineering ML",
+      "group": "大模型公司",
+      "type": "Blog",
+      "url": "https://engineering.fb.com/category/ml-applications/feed/"
+    },
+    {
+      "name": "Meta Newsroom",
+      "group": "大模型公司",
+      "type": "News",
+      "url": "https://about.fb.com/news/feed/"
+    },
+    {
       "name": "NVIDIA AI Blog",
       "group": "大模型公司",
       "type": "Blog",
       "url": "https://blogs.nvidia.com/blog/tag/artificial-intelligence/feed/"
+    },
+    {
+      "name": "NVIDIA Newsroom",
+      "group": "大模型公司",
+      "type": "News",
+      "url": "https://nvidianews.nvidia.com/rss.xml"
     },
     {
       "name": "Huawei News",
@@ -31,10 +57,42 @@
       "url": "https://www.huawei.com/cn/rss-feeds/huawei-updates/rss"
     },
     {
+      "name": "Alibaba Cloud Press Room",
+      "group": "大模型公司",
+      "type": "News",
+      "url": "https://www.alibabacloud.com/en/press-room",
+      "parser": "alibabaPress",
+      "limit": 12
+    },
+    {
+      "name": "Unitree News",
+      "group": "AI大佬 · 中国",
+      "type": "News",
+      "url": "https://www.unitree.com/news",
+      "parser": "linkList",
+      "includePatterns": ["/news/"],
+      "limit": 8
+    },
+    {
+      "name": "Stanford HAI News",
+      "group": "研究机构",
+      "type": "News",
+      "url": "https://hai.stanford.edu/news",
+      "parser": "linkList",
+      "includePatterns": ["/news/"],
+      "limit": 12
+    },
+    {
       "name": "Sam Altman Blog",
       "group": "AI大佬 · 美国",
       "type": "Blog",
       "url": "https://blog.samaltman.com/posts.atom"
+    },
+    {
+      "name": "DeepSeek V3 Releases",
+      "group": "大模型公司",
+      "type": "News",
+      "url": "https://github.com/deepseek-ai/DeepSeek-V3/releases.atom"
     },
     {
       "name": "Microsoft AI Blog",
@@ -61,6 +119,21 @@
       "url": "https://www.latent.space/feed"
     },
     {
+      "name": "DeepLearning.AI / The Batch",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://www.deeplearning.ai/the-batch/",
+      "parser": "deeplearningBatch",
+      "limit": 12
+    },
+    {
+      "name": "The Gradient",
+      "group": "技术博客",
+      "type": "Blog",
+      "url": "https://thegradient.pub/rss/",
+      "timeoutMs": 25000
+    },
+    {
       "name": "The Decoder",
       "group": "行业媒体",
       "type": "News",
@@ -69,18 +142,11 @@
   ],
   "pendingSources": [
     {
-      "name": "Anthropic News",
-      "group": "大模型公司",
-      "type": "Blog",
-      "url": "https://www.anthropic.com/news",
-      "reason": "官方 RSS 未确认，先保留官方页面链接。"
-    },
-    {
       "name": "Meta AI Blog",
       "group": "大模型公司",
       "type": "Blog",
       "url": "https://ai.meta.com/blog/",
-      "reason": "官方 RSS 未确认，先保留官方页面链接。"
+      "reason": "当前环境抓取 ai.meta.com/blog 不稳定；已用 Meta Engineering ML 和 Meta Newsroom 作为真实接入源。"
     },
     {
       "name": "DeepSeek X",
@@ -89,20 +155,6 @@
       "url": "https://x.com/deepseek_ai",
       "rssHubPath": "/twitter/user/deepseek_ai",
       "reason": "X 默认不稳定接入；配置 RSSHUB_BASE_URL 后可尝试通过 RSSHub 抓取。"
-    },
-    {
-      "name": "DeepLearning.AI / The Batch",
-      "group": "技术博客",
-      "type": "Blog",
-      "url": "https://www.deeplearning.ai/the-batch/",
-      "reason": "官方页面保留；常见 RSS 地址当前不可用，后续可接 Newsletter API、RSSHub 或页面解析。"
-    },
-    {
-      "name": "The Gradient",
-      "group": "技术博客",
-      "type": "Blog",
-      "url": "https://thegradient.pub/rss/",
-      "reason": "技术博客名单保留，暂不真实接入。"
     },
     {
       "name": "Yannic Kilcher",
@@ -143,7 +195,7 @@
       "group": "AI大佬 · 中国",
       "type": "Person",
       "url": "https://www.alibabacloud.com/",
-      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接入阿里云官方动态或公开演讲源。"
+      "reason": "人物动态源保留；已用 Alibaba Cloud Press Room 覆盖阿里/Qwen 相关新闻，暂无稳定个人源。"
     },
     {
       "name": "陈天石",
@@ -169,16 +221,20 @@
           "label": "X",
           "url": "https://x.com/drfeifei",
           "rssHubPath": "/twitter/user/drfeifei"
+        },
+        {
+          "label": "Stanford HAI News",
+          "url": "https://hai.stanford.edu/news"
         }
       ],
-      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接 Stanford/HAI 动态或公开演讲源。"
+      "reason": "人物动态源保留；已接入 Stanford HAI News 和 X，暂无稳定个人 RSS。"
     },
     {
       "name": "王兴兴",
       "group": "AI大佬 · 中国",
       "type": "Person",
       "url": "https://www.unitree.com/",
-      "reason": "人物动态源保留；暂无稳定个人 RSS，后续可接宇树科技官方动态或公开访谈源。"
+      "reason": "人物动态源保留；已接入 Unitree News，暂无稳定个人 RSS。"
     },
     {
       "name": "Sam Altman",

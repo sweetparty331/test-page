@@ -5,6 +5,14 @@ on:
     - cron: "0 0 * * *"  # 08:00 Asia/Shanghai, Asia/Singapore
     - cron: "0 12 * * *" # 20:00 Asia/Shanghai, Asia/Singapore
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "config.json"
+      - "lib/**"
+      - "scripts/generateDailyFeed.js"
+      - ".github/workflows/daily-feed.yml"
 
 permissions:
   contents: write
@@ -29,6 +37,7 @@ jobs:
           ENABLE_X_FEEDS: ${{ vars.ENABLE_X_FEEDS }}
           X_STATUS_API_BASE: ${{ vars.X_STATUS_API_BASE }}
           RSSHUB_BASE_URL: ${{ vars.RSSHUB_BASE_URL }}
+          REQUIRE_CHINESE_SUMMARIES: "true"
         run: node scripts/generateDailyFeed.js
 
       - name: Commit snapshot
